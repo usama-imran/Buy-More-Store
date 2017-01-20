@@ -38,7 +38,7 @@ $(function(){
 		// creating a data string to store the data from the edit input fields
 		var dataString ='cat_id='+ id + '&cat_name='+ name + '&cat_description='+ description ;
 		// posting the data string to the categories contoller which will post the data to database
-		$.post("../../../Controller/categories_controller/Categories/edit_categories",
+		$.post("../../../BuyMore/categories_controller/edit_category",
 		        {
 				cat_id: id,
 				cat_name: name,

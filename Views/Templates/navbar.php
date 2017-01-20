@@ -14,7 +14,7 @@ $username = "";
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       <li class="hvr-underline-from-left" ><a href="../Categories_Controller/Categories">Categories</a></li>
-      <li class="hvr-underline-from-left"><a href="../../../Controller/products_controller/Products/products">Products</a></li>
+      <li class="hvr-underline-from-left"><a href="../Products_Controller/Products">Products</a></li>
       <li class="hvr-underline-from-left"><a href="../../../Controller/cart_controller/Cart_Controller/orders">Orders</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">

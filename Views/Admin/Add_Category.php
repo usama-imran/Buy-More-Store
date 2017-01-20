@@ -11,7 +11,6 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script type="text/javascript" src="../../../View/Assets/JS/edit.js"></script>
 		<link rel="stylesheet" href="../Sources/CSS/form_style.css" />  
 		
 		<script type="text/javascript" src="../Sources/JS/cat_form_validation.js"></script>
