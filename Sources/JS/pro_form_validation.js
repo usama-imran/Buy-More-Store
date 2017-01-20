@@ -116,7 +116,7 @@ $(document).ready(function(){
 			return true;
 				
 	}
-	
+	// Quantity Validator
 	function validate_quantity() 
 	{
 		if(quantity.val() <= 0)
@@ -133,9 +133,6 @@ $(document).ready(function(){
 			}
 				
 	}
-	
-	
-	
 	
 	
 });
