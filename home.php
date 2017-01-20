@@ -81,7 +81,6 @@ if ($url==""){
  else
 {
       $url = explode("/", $_SERVER['REQUEST_URI']);
-      print_r($url);
       if($url[1]!="")
       {
           if($url[2]!="")

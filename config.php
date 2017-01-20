@@ -6,7 +6,7 @@ class Database {
 	private $_connection;
 	private static $_instance; //The single instance
 	private $_host = "localhost";
-	private $_username = "";
+	private $_username = "root";
 	private $_password = "";
 	private $_database = "store";
 	/*
@@ -24,8 +24,7 @@ class Database {
 	// Constructor
 	private function __construct() 
 	{
-		$this->_connection = new mysqli($this->_host, $this->_username, 
-			$this->_password, $this->_database);
+		$this->_connection = new mysqli($this->_host, $this->_username, $this->_password, $this->_database);
 	
 		// Error handling
 		if(mysqli_connect_error()) 
