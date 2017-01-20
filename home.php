@@ -1,4 +1,5 @@
 <?php
+include_once 'Controllers/Categories_Controller.php';
 class ControllerFactory{
  
     public function __construct() {
@@ -15,10 +16,11 @@ class ControllerFactory{
      * @return nothing to return , 
      *  
      */
-    public function getController(IController $contName, $method="", $parms=""){
+    public function getController($contName, $method="", $parms=""){
         if($method==""){
        
-            $contName->index();
+            //$contName->index();
+            echo "Nothing Found";
         }
         else
         {
@@ -47,17 +49,14 @@ class ControllerFactory{
       if ($contName!=null){
         if($method==""){
             try{
-                //$obj=new $contName();
-                //$obj->index();
                header('Location: /POS2/'.$contName.'/index');
-            }  catch (Exception $e){
-               
+            }catch (Exception $e){  
                  header('Location: /POS2/NotFoundController/index');
             }
         }
         else
         {
-            if($parms==""){
+        	if($parms==""){
                  header('Location: /POS2/'.$contName.'/'.$method);
             }
             else
@@ -82,22 +81,25 @@ if ($url==""){
  else
 {
       $url = explode("/", $_SERVER['REQUEST_URI']);
-      if($url[0]!="")
+      print_r($url);
+      if($url[1]!="")
       {
-          if($url[1]!="")
+          if($url[2]!="")
           {
               include_once 'Controllers/'.$url[2].'.php';
-              if($url[2]!=""){
-                  ControllerFactory::getController(new $url[0](),$url[1],$url[2]);
-              }
-              else
+              if(isset($url[2]) && isset($url[3]) && isset($url[4]))
               {
-                  ControllerFactory::getController(new $url[0](),$url[1]);
+                  ControllerFactory::getController(new $url[2](),$url[3],$url[4]);
+              }
+              else if(isset($url[2]) && isset($url[3]))
+              {
+                  ControllerFactory::getController(new $url[2](),$url[3]);
               }
           }
           else
           {
-              ControllerFactory::getController(new $url[0]());
+             // ControllerFactory::getController(new $url[2]());
+             echo "Hello";
           }    
       }
       else

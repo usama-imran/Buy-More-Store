@@ -1,29 +1,21 @@
 <?php
-class Categories
+/**
+* CRUD Operations on categories on Model level
+*/
+class Category
 {
-    private $method_name;
-
-    public function __construct($method)
-    {
-        $this->method_name = $method;
-    }
-    
-    public function get_categories()
-    {
-        return $this->method_name;
-    }
+	/**
+	* Method to list all the rows of the table
+	* @return $array
+	*/
+	function categories()
+	{
+	// connection to the database
+	
+	$sql_query = "SELECT category.cat_id,category.cname,category.description,category.date_created , users.first_name FROM category JOIN users ON category.created_by=users.person_id;";
+    $result = $mysqli->query($sql_query);
+    $array = mysqli_fetch_all($result,true);
+    return $array;
+	}
 }
-
-class Categories_Factory
-{
-    public static function get_method($method)
-    {
-        return new Categories($method);
-    }
-}
-
-// have the factory create the Automobile object
-$obj = Categories_Factory::get_method('get_categories');
-
-print_r($obj->get_categories()); // outputs "Bugatti Veyron"
 ?>
