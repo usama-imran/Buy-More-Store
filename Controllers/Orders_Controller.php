@@ -6,8 +6,11 @@ class Orders_Controller
 	 * Function get the list of orders along with their details.
 	 * @return void
 	 */
-	public function Orders() 
+	public function orders() 
 	{
+		if(!isset($_SESSION['admin']))
+			header("Location:../Login_Controller/Login");
+		
 		$model_obj = new Orders_Model();
 		$result = $model_obj->Orders();
 		$result[0];
@@ -18,7 +21,7 @@ class Orders_Controller
 	 * Function to post the data to the model to update delivery status of the order
 	 * @return void
 	 */
-	public function Delivery_Status()
+	public function delivery_status()
 	{
 		$id = $_POST['order_id'];
 		$active = $_POST['active'];

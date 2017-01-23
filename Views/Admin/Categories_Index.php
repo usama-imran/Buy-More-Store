@@ -1,5 +1,3 @@
-<?php 
-?>
 <html>
 	<head>
 		<title>Categories</title>

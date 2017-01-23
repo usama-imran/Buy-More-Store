@@ -11,7 +11,9 @@ class Categories_Controller
     */
     public function categories()
     {
-        $data = array();
+    	if(!isset($_SESSION['admin']))
+    		header("Location:../Login_Controller/Login");
+    	
         $obj = new Category_Model();
         $result = $obj->categories(); // getting the result from model function
         require_once 'Views/Admin/categories_index.php';
@@ -22,6 +24,9 @@ class Categories_Controller
     */
     public function add()
     {
+    	if(!isset($_SESSION['admin']))
+    		header("Location:../Login_Controller/Login");
+    	
     	require_once 'Views/Admin/Add_Category.php';
     }
     /**

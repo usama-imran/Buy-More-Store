@@ -12,6 +12,9 @@ class Products_Controller
     */
     public function products()
     {
+    	if(!isset($_SESSION['admin']))
+    		header("Location:../Login_Controller/Login");
+    	
         $obj = new Products_Model();
         $result = $obj->products(); // getting the result from model function
         require_once 'Views/Admin/products_index.php';
@@ -21,6 +24,9 @@ class Products_Controller
     */
     public function add()
     {
+    	if(!isset($_SESSION['admin']))
+    		header("Location:../Login_Controller/Login");
+    	
     	$pro_obj = new Products_Model();
     	$cat_obj = new Category_Model();
     	$products = $pro_obj->products();
@@ -67,6 +73,9 @@ class Products_Controller
      */
     public function edit($id)
     {
+    	if(!isset($_SESSION['admin']))
+    		header("Location:../Login_Controller/Login");
+    	
     	$pro_obj = new Products_Model();
     	$cat_obj = new Category_Model();
     	$products = $pro_obj->products();
