@@ -1,5 +1,4 @@
 <?php
-include 'Path/include.php';
 if(isset($_SESSION['user']))
   {
   $username = $_SESSION['user_name'];
