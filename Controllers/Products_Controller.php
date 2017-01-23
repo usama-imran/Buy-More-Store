@@ -60,23 +60,48 @@ class Products_Controller
         }
         header("Location:Products");
     }
-    public function edit()
+    
+    /**
+     * Will populate the edit view with product information
+     * @param number $id
+     */
+    public function edit($id)
     {
-    	
+    	$pro_obj = new Products_Model();
+    	$cat_obj = new Category_Model();
+    	$products = $pro_obj->products();
+    	$categories = $cat_obj->categories();
+    	$product_detail = $pro_obj->edit($id);
+    	foreach ($product_detail as $pro_form_var)
+    	{
+    		$pro_id = $pro_form_var['product_id'];
+    		$pro_name = $pro_form_var['name'];
+    		$pro_price = $pro_form_var['price'];
+    		$pro_description = $pro_form_var['description'];
+    		$pro_quantity = $pro_form_var['quantity'];
+    		$pro_cat_id = $pro_form_var['cat_id'];
+    		$pro_is_active = $pro_form_var['is_active'];
+    	}
+    	require_once 'Views/Admin/Edit_Product.php';
     }
     /**
      * Will edit the row
      * @return void
      */
-    function edit_products()
+    function edit_product()
     {
     	// requesting the inputs from the posted form
-    	$cat_name = $_REQUEST['cat_name'];
-    	$cat_description = $_REQUEST['cat_description'];
-    	$cat_id = $_REQUEST['cat_id'];
-    	// Creating the object of the model class to call its method to post requested data
-    	$model_obj = new Category_Model();
-    	$model_obj->edit_category($cat_name,$cat_description,$cat_id);
+    	$pro_id = $_POST['product_id'];
+    	$pro_name = $_POST['name'];
+    	$pro_price = $_POST['price'];
+    	$pro_quantity = $_POST['quantity'];
+    	$pro_desc = $_POST['description'];
+    	$pro_category = $_POST['category'];
+    	$pro_is_active = $_POST['is_active'];
+    	$pro_obj = new Products_Model();
+    	$pro_obj->edit_product($pro_id,$pro_name,$pro_price,$pro_quantity,$pro_desc,$pro_category,$pro_is_active);
+    	
+    	header("Location:Products");
     }
    
 }

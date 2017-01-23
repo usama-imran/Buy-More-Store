@@ -1,5 +1,4 @@
 <?php
-include_once 'Controllers/Categories_Controller.php';
 class ControllerFactory{
  
     public function __construct() {
@@ -44,39 +43,39 @@ class ControllerFactory{
      * @return nothing to return , 
      *  
      */
-   public function loadControllerByName($contName, $method="", $parms="")
-	{
-      if ($contName!=null){
-        if($method==""){
-            try{
-               header('Location: /POS2/'.$contName.'/index');
-            }catch (Exception $e){  
-                 header('Location: /POS2/NotFoundController/index');
-            }
-        }
-        else
-        {
-        	if($parms==""){
-                 header('Location: /POS2/'.$contName.'/'.$method);
-            }
-            else
-            {
-                 $obj->$method($parms);
-            }
-        }
-      }
-      else
-      {
-          $obj=new NotFoundController();
-          $obj->index();
-      }
-	}
+//    public function loadControllerByName($contName, $method="", $parms="")
+// 	{
+//       if ($contName!=null){
+//         if($method==""){
+//             try{
+//                header('Location: /POS2/'.$contName.'/index');
+//             }catch (Exception $e){  
+//                  header('Location: /POS2/NotFoundController/index');
+//             }
+//         }
+//         else
+//         {
+//         	if($parms==""){
+//                  header('Location: /POS2/'.$contName.'/'.$method);
+//             }
+//             else
+//             {
+//                  $obj->$method($parms);
+//             }
+//         }
+//       }
+//       else
+//       {
+//           $obj=new NotFoundController();
+//           $obj->index();
+//       }
+// 	}
 }
 
 $url = $_SERVER['REQUEST_URI'];
-if ($url==""){
-    //ControllerFactory::getController(new LoginController());
-	
+if ($url=="")
+{
+	// Enter code here
 }
  else
 {
@@ -97,13 +96,11 @@ if ($url==""){
           }
           else
           {
-             // ControllerFactory::getController(new $url[2]());
              echo "Hello";
           }    
       }
       else
       {
-           //ControllerFactory::getController(new LoginController());
       	$url = explode("/", $_SERVER['REQUEST_URI']);
       	print_r($url);
       }

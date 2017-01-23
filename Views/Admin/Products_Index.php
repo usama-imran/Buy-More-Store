@@ -51,7 +51,7 @@
 			echo $var['first_name'];
 			echo "&nbsp;</td><td>";
 		?>
-		<a href="../../../Controller/products_controller/Products/edit/<?php echo $var['product_id']?>" class="hvr-pop"><span class="glyphicon glyphicon-edit"></span> </a>
+		<a href="Edit/<?php echo $var['product_id']?>" class="hvr-pop"><span class="glyphicon glyphicon-edit"></span> </a>
 		<?php 
 		}
 		?>

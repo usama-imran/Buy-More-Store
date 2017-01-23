@@ -15,33 +15,8 @@
 		<link rel="stylesheet" href="../Sources/CSS/form_style.css" />  
 		<script type="text/javascript" src="../Sources/JS/pro_form_validation.js"></script>
 		<!-- Javascript to enable & disable associated products  -->
-		
-		<script type="text/javascript">
-		// Enable / Disable associated products
-		function disable_assoc_products()
-		{
-			var drop_down = document.getElementById("associated_product");
-	        drop_down.setAttribute("disabled", true);
-	        drop_down.style.visibility = 'hidden';
-		}
-		function enable_assoc_products() 
-		{
-			var check_box = document.getElementById("associated_product_enable");
-			var drop_down = document.getElementById("associated_product");
-			if(check_box.checked)
-			{
-				drop_down.removeAttribute("disabled");
-				drop_down.style.visibility = 'visible';	
-			}
-			else if(check_box.checked == false)
-			{
-				drop_down.setAttribute("disabled", true);
-				drop_down.style.visibility = 'hidden';	
-			}
-		}
-		</script>
 	</head>
-	<body onload="disable_assoc_products()">
+	<body>
 	<div class="container">
 	<div class="row">
 		<?php include 'views/templates/navbar.php';?>
@@ -99,7 +74,7 @@
 					<td>Associated Product</td>
 					<td>
 						<input type="hidden" name="associated_product_enable"  value="0">
-						<input type="checkbox"  name="associated_product_enable" id="associated_product_enable" value="1" onclick = "enable_assoc_products()">
+						<input type="checkbox"  name="associated_product_enable" id="associated_product_enable" value="1">
 						<select name="associated_product" id="associated_product"  class="hidden_dropdowns" >
 						<option>--Select Product--</option>
 						<?php 

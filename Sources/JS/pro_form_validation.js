@@ -1,6 +1,26 @@
 
 $(document).ready(function(){
 	
+	var drop_down = document.getElementById("associated_product");
+	    drop_down.setAttribute("disabled", true);
+	    drop_down.style.visibility = 'hidden';
+	    
+	    $("#associated_product_enable").click(function ()
+	    {
+	    	var check_box = document.getElementById("associated_product_enable");
+ 			var drop_down = document.getElementById("associated_product");
+ 			if(check_box.checked)
+ 			{
+ 				drop_down.removeAttribute("disabled");
+ 				drop_down.style.visibility = 'visible';	
+ 			}
+ 			else if(check_box.checked == false)
+ 			{
+ 				drop_down.setAttribute("disabled", true);
+ 				drop_down.style.visibility = 'hidden';	
+ 			}
+	    });
+	
 	// initializing the form fields
 	var form = $("#pro_form");
 	
@@ -136,3 +156,4 @@ $(document).ready(function(){
 	
 	
 });
+

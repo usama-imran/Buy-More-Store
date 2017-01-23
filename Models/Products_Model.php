@@ -49,9 +49,19 @@ class Products_Model
 	 * Method to edit an existing category
 	 * @return void
 	 */
-	function edit_category($name,$description,$category_id)
+	function edit($id)
 	{
-		$sql_query = "UPDATE `category` SET `cname` = '$name' ,`description` = '$description'  WHERE `category`.`cat_id` = '$category_id';";
+		$sql_query = "SELECT * FROM product WHERE product_id = '$id'";
+		$array = $this->conn->query($sql_query);
+		return $array;
+	}
+	/**
+	 * Method to edit an existing category
+	 * @return void
+	 */
+	function edit_product($pro_id,$pro_name,$pro_price,$pro_quantity,$pro_desc,$pro_category,$pro_is_active)
+	{
+		$sql_query = "UPDATE `product` SET `name` = '$pro_name', `price` = '$pro_price', `description` = '$pro_desc', `quantity` = '$pro_quantity', `is_active` = '$pro_is_active', `cat_id` = '$pro_category' WHERE `product`.`product_id` = $pro_id;";
 		$this->conn->query($sql_query);
 	}
 }
