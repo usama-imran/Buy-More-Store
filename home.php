@@ -7,12 +7,12 @@ class ControllerFactory{
     /*
      * getController method , call when there is request for a specific controller by url 
      * load controller/method if method is
-     * provided , otherwise laod controller/index, 
+     * provided , otherwise laod controller/index,  --> not implemented yet
      * if url don't have controller then load LoginController/index by default
-     * @parms IController $contName  specify controller name 
+     * @parms String $contName  specify controller name 
      * @parms String $method specify method name 
      * @parms String $parms  specify list of parameters  
-     * @return nothing to return , 
+     * @return void 
      *  
      */
     public function getController($contName, $method="", $parms=""){
@@ -32,44 +32,6 @@ class ControllerFactory{
             }
         }
     }
-    /*
-     * loadControllerByName method , call when there is request from a controller for a specific controller by url 
-     * load controller/method if method is
-     * provided , otherwise laod controller/index, 
-     * if  don't have controller name then load NotFoundController/index by default
-     * @parms String $contName  specify controller name 
-     * @parms String $method specify method name 
-     * @parms String $parms  specify list of parameters  
-     * @return nothing to return , 
-     *  
-     */
-//    public function loadControllerByName($contName, $method="", $parms="")
-// 	{
-//       if ($contName!=null){
-//         if($method==""){
-//             try{
-//                header('Location: /POS2/'.$contName.'/index');
-//             }catch (Exception $e){  
-//                  header('Location: /POS2/NotFoundController/index');
-//             }
-//         }
-//         else
-//         {
-//         	if($parms==""){
-//                  header('Location: /POS2/'.$contName.'/'.$method);
-//             }
-//             else
-//             {
-//                  $obj->$method($parms);
-//             }
-//         }
-//       }
-//       else
-//       {
-//           $obj=new NotFoundController();
-//           $obj->index();
-//       }
-// 	}
 }
 
 $url = $_SERVER['REQUEST_URI'];

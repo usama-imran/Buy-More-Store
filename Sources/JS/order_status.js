@@ -1,17 +1,16 @@
-// form validation for adding new category
-$(document).ready(function(){
-	
+$(function(){
 	$("input[type='checkbox']").change(function() 
 	{
     	var id = $(this).val();
     	if($(this).is(":checked"))
     	{
-    		$.post("../../../Controller/cart_controller/Cart_Controller/delivered",
+    		$.post("../../../BuyMore/Orders_Controller/Delivery_Status",
 			        {
-					"order_id": id
+					"order_id": id,
+					"active": 0
 			        },
-			        function(msg){
-			        	console.log(msg);
+			        function(success){
+			        	console.log(success);
 			        });
     	}
     	else
@@ -19,12 +18,13 @@ $(document).ready(function(){
     		var user_choice = confirm("Are you sure you want to mark this order as NOT DELIVERED");
     		if (user_choice == true)
     		{
-    			$.post("../../../Controller/cart_controller/Cart_Controller/not_delivered",
+    			$.post("../../../BuyMore/Orders_Controller/Delivery_Status",
 			        {
-					"order_id": id
+					"order_id": id,
+					"active": 1
 			        },
-			        function(msg){
-			        	console.log(msg);
+			        function(success){
+			        	console.log(success);
 			        });
     		}
     		else
