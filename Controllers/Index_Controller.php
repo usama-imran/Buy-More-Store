@@ -1,4 +1,9 @@
 <?php
+if(!isset($_SESSION['create_array']))
+{
+	$_SESSION['create_array'] = 1;
+	$_SESSION['pro_array'] = array();
+}
 require_once 'Models/Index_Model.php';
 class Index_Controller
 {

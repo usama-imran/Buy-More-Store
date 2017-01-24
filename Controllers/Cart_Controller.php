@@ -1,10 +1,4 @@
 <?php
-// Will create the session array only once
-if(!isset($_SESSION['create_array']))
-{
-	$_SESSION['create_array'] = 1;
-	$_SESSION['pro_array'] = array();
-}
 /**
  * Cart Controller will be responsible for managing the cart, add/remove/checkout products from the cart.
  */
