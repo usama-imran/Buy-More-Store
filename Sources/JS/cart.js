@@ -1,6 +1,6 @@
 $(function(){
-	$("button").bind("click", Remove);
-	
+	$(".btn-danger").bind("click", Remove);
+	$("#checkout").bind("click", Check_Out);
 	function Remove()
 	{
 		var id = $(this).attr("data-id");
@@ -15,4 +15,17 @@ $(function(){
 		        	$("#cart").load(" #cart");
 		        });
 	}
+	
+	
+	function Check_Out()
+	{
+		$.post("../../../BuyMore/cart_controller/check_out",
+		        {
+		        },
+		        function(data){
+		           window.location.href = '../Index_Controller/Index';	    
+		        });
+		 
+	}
+	
 });

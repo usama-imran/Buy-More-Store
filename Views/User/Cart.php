@@ -10,6 +10,10 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     	<script type="text/javascript" src="../Sources/JS/cart.js"></script>
 		<style>
+		.check_out
+		{
+		color:red;
+		}
 		.total_sum
 		{
 		text-align: center;
@@ -75,31 +79,18 @@
 				<?php echo $total_sum;?>
 				</i>
 				</p>
-				<button class="btn btn-warning" id="checkout">
+				<?php 
+				if(isset($_SESSION['user']))
+				{?>
+					<button class="btn btn-warning" id="checkout">
 				  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> 
 				Check Out
 				</button>
-				<!-- Check if user is logged in -->
-				<script type="text/javascript">
-// 				$(function(){
-// 				$("#checkout").on('click',function(){
-// 					$.get('../../../View/session_state.php', function(data) {
-// 					     if( data == "no" ) {
-// 					    	 var retVal = confirm("Please Login to proceed with your request");
-// 								if(retVal == true)
-// 								{
-// 									window.location.href = '../../../Controller/login_controller/Login_Controller/login';
-// 								}	    	 
-// 					     } else if (data == "yes" ) {
-// 					    	 $.post("../../../Controller/cart_controller/Cart_Controller/check_out", 
-// 							    	 function(status){
-// 						    	 window.location.href = '../../../Controller/cart_controller/Cart_Controller/reset_cart';
-// 						    	 });
-// 					     }
-// 					 });
-// 					});
-// 				});
-				</script>
+				<?php }
+				else {
+				echo "<h5><i class='check_out'>Please login to checkout!</i></h5>";
+				}
+				?>
 				</td>
 				<td>
 				</td>

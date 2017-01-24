@@ -1,9 +1,16 @@
 <?php
+require_once 'Models/Cart_Model.php';
 /**
  * Cart Controller will be responsible for managing the cart, add/remove/checkout products from the cart.
  */
 class Cart_Controller {
 	
+	private $model_obj;
+	
+	public function __construct()
+	{
+		$this->model_obj= new Cart_Model();
+	}
 	
  /**
  * Will load the cart view
@@ -56,41 +63,15 @@ class Cart_Controller {
  	}
  }
  /**
-  * Will post the cart data to database. 
+  * Will post the cart data to database & clear cart
   */
  function check_out() 
  {
- 	session_start();
 	$user_id = $_SESSION['user_info'];
-	$db = new Connection();
-	$mysqli = $db->getConnection();
-	if(sizeof($_SESSION['pro_array'])>0)
-	{
-		$sql_query = "INSERT INTO `cart` (`order_id`,user_id,`active`,`date_created`) VALUES (NULL,$user_id,1,CURRENT_TIMESTAMP);";
-		if($mysqli->query($sql_query) == TRUE)
-        {
-            $cart_no = $mysqli->insert_id;
-        }
-		foreach ($_SESSION['pro_array'] as $value)
-		{
-			$product_id = $value['product_id'];
-			$product_quantity = $value['product_quantity'];
-			$insert_products = "INSERT INTO `cart_products` (`cart_pro_id`, `product_id`, `person_id`, `order_id`, `quantity`) 
-					VALUES (Null, '$product_id', '$user_id', '$cart_no', '$product_quantity')";
-			$mysqli->query($insert_products);
-		}
-	}
- }  
- /**
-  * Will unset the session array after checkout
-  */
- function reset_cart()
- {
- 	session_start();
- 	unset($_SESSION['create_array']);
- 	unset($_SESSION['pro_array']);
- 	header("Location: ../../../Controller/index_controller/Index_Controller/index");
- }
+	$this->model_obj->check_out($user_id);
+	unset($_SESSION['create_array']);
+	unset($_SESSION['pro_array']);
+ } 
  
 }// End of class
 ?>
