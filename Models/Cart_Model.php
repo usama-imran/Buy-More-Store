@@ -9,7 +9,11 @@ class Cart_Model
 		$db= Database::getInstance();
 		$this->conn=$db->getConnection();
 	}
-	
+	/**
+	 * Will post the checked out cart to the database tables. 
+	 * Insertion will take place at two places.
+	 * @param integer $id will be the id of the person checking out
+	 */
 	public function check_out($id)
 	{
 		if(sizeof($_SESSION['pro_array'])>0)

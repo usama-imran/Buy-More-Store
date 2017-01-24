@@ -15,7 +15,7 @@ class Category_Model
 	
 	/**
 	 * Method to get all the rows of the table
-	 * @return $array
+	 * @return array $array
 	 */
 	public function categories()
 	{
@@ -25,8 +25,11 @@ class Category_Model
     return $array;
 	}
 	/**
-	 * Method to add a new row to the table
-	 * @return $array
+	 * Will add a new category
+	 * @param string $name Will be the name of the category
+	 * @param string $description Will be the discription of the category
+	 * @param boolean $is_active Boolen value to check active state of category
+	 * @param integer $created_by Id of the parson who created the category
 	 */
 	function add_category($name,$description,$is_active,$created_by)
 	{
@@ -35,8 +38,10 @@ class Category_Model
 		$this->conn->query($sql_query);
 	}
 	/**
-	 * Method to edit an existing category
-	 * @return void
+	 * Will edit an existing category
+	 * @param string $name Will be the name of category
+	 * @param string $description Will be the description of category
+	 * @param integer $category_id Will be the Id of the category to be edited
 	 */
 	function edit_category($name,$description,$category_id)
 	{

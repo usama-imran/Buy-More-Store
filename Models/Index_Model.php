@@ -13,8 +13,8 @@ class Index_Model
 		$this->conn=$db->getConnection();
 	}
 	/**
-	 *  Get the list of all the available categories having products in them
-	 * @return $array
+	 * Get the list of all the available categories having products in them
+	 * @return array $cat_result
 	 */
 	function index()
 	{		
@@ -26,8 +26,8 @@ class Index_Model
 	}
 	/**
 	*  Get all the products by category from the database
-	* @param $cat_id will tell which category products are to be loaded
-	* @return $array
+	* @param integer $cat_id will tell which category products are to be loaded
+	* @return array $array
 	*/
 	function get_product_by_category($cat_id)
 	{

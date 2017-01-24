@@ -11,7 +11,7 @@ class Orders_Model
 	}
 	/**
 	 * Select the order along with their details from the databas
-	 * @return array
+	 * @return array Will be an associative array
 	 */
 	public function Orders()
 	{		
@@ -25,8 +25,8 @@ class Orders_Model
 	}
 	/**
 	 * Will update the database , change the delivery status of the order
-	 * @param number $id
-	 * @param boolean $status
+	 * @param number $id will be the id of the order
+	 * @param boolean $status status will be Active/Inactive state of the order
 	 */
 	public function Delivery_Status($id,$status)
 	{
