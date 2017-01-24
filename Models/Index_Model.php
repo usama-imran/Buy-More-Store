@@ -20,12 +20,9 @@ class Index_Model
 	{		
 		$category = "SELECT category.cat_id, category.cname, count(product.cat_id ) 
 				FROM category RIGHT OUTER JOIN product ON category.cat_id = product.cat_id GROUP BY product.cat_id ORDER BY category.cname";
-		$pro_by_cat = "SELECT * FROM product";
 		$cat_result = $this->conn->query($category);
-		$pro_by_cat_result = $this->conn->query($pro_by_cat);
 		$cat_result = mysqli_fetch_all($cat_result,true);
-		$pro_by_cat_result = mysqli_fetch_all($pro_by_cat_result,true);
-		return array ($cat_result,$pro_by_cat_result);
+		return $cat_result;
 	}
 	/**
 	*  Get all the products by category from the database
