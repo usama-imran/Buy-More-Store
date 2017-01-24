@@ -3,6 +3,8 @@
  * Cart Controller will be responsible for managing the cart, add/remove/checkout products from the cart.
  */
 class Cart_Controller {
+	
+	
  /**
  * Will load the cart view
  */
@@ -89,25 +91,6 @@ class Cart_Controller {
  	unset($_SESSION['pro_array']);
  	header("Location: ../../../Controller/index_controller/Index_Controller/index");
  }
-/**
-  * Will update the delivery status of the order
-  */
- function delivered()
- {
-	$db = new Connection();
-	$mysqli = $db->getConnection();
-	$id = $_POST['order_id'];
-	$sql_query = "UPDATE `cart` SET `active` = '0' WHERE `cart`.`order_id` = $id;";
-	$mysqli->query($sql_query);
- }
-
- function not_delivered()
- {
-	$db = new Connection();
-	$mysqli = $db->getConnection();
-	$id = $_POST['order_id'];
-	$sql_query = "UPDATE `cart` SET `active` = '1' WHERE `cart`.`order_id` = $id;";
-	$mysqli->query($sql_query);
- }
+ 
 }// End of class
 ?>

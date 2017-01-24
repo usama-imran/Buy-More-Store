@@ -7,15 +7,20 @@ if(!isset($_SESSION['create_array']))
 require_once 'Models/Index_Model.php';
 class Index_Controller
 {
+	private $model_obj;
+	
+	public function __construct()
+	{
+		$this->model_obj= new Index_Model();
+	}
+	
 	/**
 	 * Will load the index view along with the categories menu
 	 * @return void
 	 */
 	public function index() 
 	{
-		$model_obj = new Index_Model();
-		$result = $model_obj->index();
-		$array = array();
+		$result = $this->model_obj->index();
 		require_once 'Views/User/Index.php';
 	}
 	/**
@@ -32,8 +37,7 @@ class Index_Controller
 		{
 			$id = 4;
 		}
-		$model_obj = new Index_Model();
-		$pro_by_cat = $model_obj->get_product_by_category($id);
+		$pro_by_cat = $this->model_obj->get_product_by_category($id);
 		require_once 'Views/User/Product_By_Category.php';
 	}
 }

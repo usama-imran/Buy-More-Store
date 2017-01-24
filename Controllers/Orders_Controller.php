@@ -2,6 +2,13 @@
 require_once 'Models/Orders_Model.php';
 class Orders_Controller 
 {
+	private $model_obj;
+	
+	public function __construct()
+	{
+		$this->model_obj= new Orders_Model();
+	}
+	
 	/**
 	 * Function get the list of orders along with their details.
 	 * @return void
@@ -11,8 +18,7 @@ class Orders_Controller
 		if(!isset($_SESSION['admin']))
 			header("Location:../Login_Controller/Login");
 		
-		$model_obj = new Orders_Model();
-		$result = $model_obj->Orders();
+		$result = $this->model_obj->Orders();
 		$result[0];
 		$result[1];
 		require_once 'Views/Admin/order_index.php';
@@ -25,7 +31,6 @@ class Orders_Controller
 	{
 		$id = $_POST['order_id'];
 		$active = $_POST['active'];
-		$model_obj = new Orders_Model();
-		$model_obj->Delivery_Status($id,$active);
+		$this->model_obj->Delivery_Status($id,$active);
 	}
 }

@@ -5,6 +5,12 @@ require_once 'Models/Categories_Model.php';
 */
 class Categories_Controller
 {
+	private $model_obj;
+	
+	public function __construct()
+	{
+		$this->model_obj= new Category_Model();
+	}
     /**
     * Will get a list of all the categories from the database
     * @return $data 
@@ -14,10 +20,8 @@ class Categories_Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:../Login_Controller/Login");
     	
-        $obj = new Category_Model();
-        $result = $obj->categories(); // getting the result from model function
+        $result = $this->model_obj->categories(); // getting the result from model function
         require_once 'Views/Admin/categories_index.php';
-        return  $result;
     }
     /**
     * Will get the view to add category
@@ -40,8 +44,7 @@ class Categories_Controller
     	$cat_is_active = $_REQUEST['is_active'];
     	$cat_created_by = $_REQUEST['created_by'];
     	// Creating the object of the model class to call its method to post requested data
-    	$model_obj = new Category_Model();
-    	$model_obj->add_category($cat_name,$cat_description,$cat_is_active,$cat_created_by);
+    	$this->model_obj->add_category($cat_name,$cat_description,$cat_is_active,$cat_created_by);
     	header("Location:Categories");
     }
     /**
@@ -55,8 +58,7 @@ class Categories_Controller
     	$cat_description = $_REQUEST['cat_description'];
     	$cat_id = $_REQUEST['cat_id'];
     	// Creating the object of the model class to call its method to post requested data
-    	$model_obj = new Category_Model();
-    	$model_obj->edit_category($cat_name,$cat_description,$cat_id);
+    	$this->model_obj->edit_category($cat_name,$cat_description,$cat_id);
     }
    
 }

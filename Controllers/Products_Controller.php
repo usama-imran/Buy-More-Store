@@ -6,6 +6,14 @@ require_once 'Models/Categories_Model.php';
 */
 class Products_Controller
 {
+	private $pro_model_obj;
+	private $cat_model_obj;
+	
+	public function __construct()
+	{
+		$this->pro_model_obj= new Products_Model();
+		$this->cat_model_obj= new Category_Model();
+	}
     /**
     * Will get a list of all the categories from the database
     * @return $data 
@@ -15,8 +23,7 @@ class Products_Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:../Login_Controller/Login");
     	
-        $obj = new Products_Model();
-        $result = $obj->products(); // getting the result from model function
+        $result = $this->pro_model_obj->products(); // getting the result from model function
         require_once 'Views/Admin/products_index.php';
     }
     /**
@@ -27,10 +34,8 @@ class Products_Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:../Login_Controller/Login");
     	
-    	$pro_obj = new Products_Model();
-    	$cat_obj = new Category_Model();
-    	$products = $pro_obj->products();
-    	$categories = $cat_obj->categories();
+    	$products = $this->pro_model_obj->products();
+    	$categories = $this->cat_model_obj->categories();
     	require_once 'Views/Admin/Add_Product.php';
     }
     /**
@@ -53,8 +58,7 @@ class Products_Controller
         $product_created_by = $_REQUEST['created_by'];
         $product_quantity = $_REQUEST['quantity'];
         // Model object creation to call the model function of inserting the data
-        $product_obj = new Products_Model();
-        $response =$product_obj->add_product($product_name,$product_price,$product_image,$product_quantity,$product_description,$product_category,$product_is_active,$product_created_by);
+        $response =$this->pro_model_obj->add_product($product_name,$product_price,$product_image,$product_quantity,$product_description,$product_category,$product_is_active,$product_created_by);
         //chek if there are any associated products. by default it will be 0
         $associated_product_enable = $_REQUEST['associated_product_enable'];
         // if there are associated products than this function
@@ -76,11 +80,9 @@ class Products_Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:../Login_Controller/Login");
     	
-    	$pro_obj = new Products_Model();
-    	$cat_obj = new Category_Model();
-    	$products = $pro_obj->products();
-    	$categories = $cat_obj->categories();
-    	$product_detail = $pro_obj->edit($id);
+    	$products = $this->pro_model_obj->products();
+    	$categories = $this->cat_model_obj->categories();
+    	$product_detail = $this->pro_model_obj->edit($id);
     	foreach ($product_detail as $pro_form_var)
     	{
     		$pro_id = $pro_form_var['product_id'];
@@ -107,8 +109,7 @@ class Products_Controller
     	$pro_desc = $_POST['description'];
     	$pro_category = $_POST['category'];
     	$pro_is_active = $_POST['is_active'];
-    	$pro_obj = new Products_Model();
-    	$pro_obj->edit_product($pro_id,$pro_name,$pro_price,$pro_quantity,$pro_desc,$pro_category,$pro_is_active);
+    	$this->pro_model_obj->edit_product($pro_id,$pro_name,$pro_price,$pro_quantity,$pro_desc,$pro_category,$pro_is_active);
     	
     	header("Location:Products");
     }

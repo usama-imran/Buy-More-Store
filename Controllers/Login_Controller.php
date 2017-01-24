@@ -2,19 +2,30 @@
 require_once 'Models/Login_Model.php';
 class Login_Controller
 {
+	private $model_obj;
+	
+	public function __construct()
+	{
+		$this->model_obj= new Login_Model();
+	}
+	/**
+	 * Will load the login view
+	 * @return void
+	 */
 	public function login()
 	{
 		require_once 'Views/login.php';
 	}
-	
+	/**
+	 * Will get the info of the user loggin in, authenticate it, and create a session for it.
+	 * @return void
+	 */
 	function do_login()
 	{
 		$user_email = $_REQUEST['email'];
 		$user_password = $_REQUEST['password'] ;
-		//Model class object creation for getting the users data.
-		$model_object = new Login_Model();
-		
-		$reslut = $model_object->login($user_email,$user_password);
+		//Model class object creation for getting the users data.		
+		$reslut = $this->model_obj->login($user_email,$user_password);
 		if($reslut)
 		{
 			foreach ($reslut as $value)

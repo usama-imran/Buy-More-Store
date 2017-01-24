@@ -1,6 +1,3 @@
-<?php
-
-?>
 <html>
 	<head>
 		<title>Cart</title>
@@ -84,24 +81,24 @@
 				</button>
 				<!-- Check if user is logged in -->
 				<script type="text/javascript">
-				$(function(){
-				$("#checkout").on('click',function(){
-					$.get('../../../View/session_state.php', function(data) {
-					     if( data == "no" ) {
-					    	 var retVal = confirm("Please Login to proceed with your request");
-								if(retVal == true)
-								{
-									window.location.href = '../../../Controller/login_controller/Login_Controller/login';
-								}	    	 
-					     } else if (data == "yes" ) {
-					    	 $.post("../../../Controller/cart_controller/Cart_Controller/check_out", 
-							    	 function(status){
-						    	 window.location.href = '../../../Controller/cart_controller/Cart_Controller/reset_cart';
-						    	 });
-					     }
-					 });
-					});
-				});
+// 				$(function(){
+// 				$("#checkout").on('click',function(){
+// 					$.get('../../../View/session_state.php', function(data) {
+// 					     if( data == "no" ) {
+// 					    	 var retVal = confirm("Please Login to proceed with your request");
+// 								if(retVal == true)
+// 								{
+// 									window.location.href = '../../../Controller/login_controller/Login_Controller/login';
+// 								}	    	 
+// 					     } else if (data == "yes" ) {
+// 					    	 $.post("../../../Controller/cart_controller/Cart_Controller/check_out", 
+// 							    	 function(status){
+// 						    	 window.location.href = '../../../Controller/cart_controller/Cart_Controller/reset_cart';
+// 						    	 });
+// 					     }
+// 					 });
+// 					});
+// 				});
 				</script>
 				</td>
 				<td>
