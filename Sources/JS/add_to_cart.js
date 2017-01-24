@@ -51,7 +51,7 @@ $(function(){
 		var pro_name = $('#pro_name'+pro_id+'').text();
 		var pro_price = $('#pro_price'+pro_id+'').text();
 		var pro_price_total = pro_price*pro_quantity;
-		$.post("../../../Controller/cart_controller/Cart_Controller/myArray",
+		$.post("../../../BuyMore/cart_controller/basket",
 		        {
 				product_id: pro_id,
 				product_name:pro_name,
@@ -60,7 +60,7 @@ $(function(){
 				product_total:pro_price_total
 		        },
 		        function(msg){
-		        	$('#cart_div').empty().load('../../../Controller/index_controller/Index_Controller/index'+' #cart_div');
+		        	$('#cart_div').empty().load(' #cart_div');
 		        });
 			
 	}
@@ -68,7 +68,6 @@ $(function(){
 	
 	// Method to add products to the cart on button click
 	function AddToCart (){
-			
 			var pro_id = $(this).attr('data-value');
 			
 			var pro_name = $('#pro_name'+pro_id+'').text();
@@ -76,13 +75,13 @@ $(function(){
 			var pro_price_total = $('#total'+pro_id+'').text();
 
 			var pro_quantity =$('#quantity'+pro_id+'').val();
-			if(pro_quantity == "" || pro_quantity < 1)
+			if(pro_quantity == 1)
 				{
 					 pro_quantity = 1;
 					 pro_price_total = pro_price * pro_quantity;
 				}
 			
-			$.post("../../../Controller/cart_controller/Cart_Controller/myArray",
+			$.post("../../../BuyMore/cart_controller/basket",
 			        {
 					product_id: pro_id,
 					product_name:pro_name,

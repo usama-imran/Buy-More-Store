@@ -109,6 +109,7 @@
          color: #f39c12;
      }
     </style>
+    	<link rel="stylesheet" href="../Sources/CSS/hover.css" />
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 		<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" ></script> -->
@@ -116,10 +117,8 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../Sources/CSS/hover.css" />
-    <script type="text/javascript" src="../Sources/JS/add_to_cart.js"></script>
-    <script type="text/javascript" src="../Sources/JS/get_product_by_category.js"></script>
-    
+    	<script type="text/javascript" src="../Sources/JS/get_product_by_category.js"></script>
+    	
   </head>
   <body>
     <div class="container">
@@ -132,6 +131,8 @@
     <div class="col-md-3">
     <!-- Php code to determine the length of the array and total sum of products for the cart -->
       <?php 
+      
+      $array = $_SESSION['pro_array'];
       $length = sizeof($array);
       $total_sum = 0;
       foreach ($array as $array)
@@ -140,7 +141,7 @@
       }
       ?>
     <!--  Cart div showing total number of added producs and price sum -->
-      <div id="cart_div" class="cart_div" onclick="window.location='Cart';">
+      <div id="cart_div" class="cart_div" onclick="window.location='../Cart_Controller/Cart';">
         <div class="panel panel-info">
           <div class="panel-heading" style="text-align: center;">Your Cart <span class="glyphicon glyphicon-shopping-cart"></span></div>
           <div class="panel-body cart_details">
@@ -155,7 +156,7 @@
       <?php
         foreach ($result as $var)
         {
-        	echo '<li class="list-group-item hvr-grow" id="category_btn" data-value="';
+        	echo '<li class="list-group-item hvr-glow" id="category_btn" data-value="';
         	echo $var['cat_id'];
         	echo';">';
          	echo $var['cname'];

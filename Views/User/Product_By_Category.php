@@ -1,3 +1,4 @@
+<script type="text/javascript" src="../Sources/JS/add_to_cart.js"></script>
 <?php
 foreach ($pro_by_cat as $item)
 {
