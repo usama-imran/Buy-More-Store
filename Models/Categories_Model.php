@@ -3,7 +3,7 @@ require_once 'config.php';
 /**
 * CRUD Operations on categories on Model level
 */
-class Category_Model
+class Categories_Model
 {
 	private $conn;
 	

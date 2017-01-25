@@ -6,14 +6,14 @@
 		<title>Edit Product</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="../../Sources/JS/bootstrap-filestyle.min.js"> </script>
+		<script type="text/javascript" src="../../Public/JS/bootstrap-filestyle.min.js"> </script>
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<!-- Script to enable and disable the associated product dropdown list -->
-		<link rel="stylesheet" href="../../Sources/CSS/form_style.css" />  
-		<script type="text/javascript" src="../../Sources/JS/pro_form_validation.js"></script>
+		<link rel="stylesheet" href="../../Public/CSS/form_style.css" />  
+		<script type="text/javascript" src="../../Public/JS/pro_form_validation.js"></script>
 		<!-- Javascript to enable & disable associated products  -->
 	</head>
 	<body>

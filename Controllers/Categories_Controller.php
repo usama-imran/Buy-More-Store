@@ -1,15 +1,15 @@
 <?php
-require_once 'Models/Categories_Model.php';
 /**
 * Class holding all the CRUD operations of Categories on Controller level 
 */
-class Categories_Controller
+class Categories_Controller extends Controller
 {
 	private $model_obj;
 	
 	public function __construct()
 	{
-		$this->model_obj= new Category_Model();
+		parent::__construct();
+		$this->model_obj= new Categories_Model();
 	}
     /**
     * Will get a list of all the categories from the database

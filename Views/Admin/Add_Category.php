@@ -8,10 +8,10 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../Sources/CSS/form_style.css" />  
+		<link rel="stylesheet" href="../Public/CSS/form_style.css" />  
 		
-		<script type="text/javascript" src="../Sources/JS/cat_form_validation.js"></script>
-		<link rel="stylesheet" href="../Sources/CSS/form_validation.css" /> 		
+		<script type="text/javascript" src="../Public/JS/cat_form_validation.js"></script>
+		<link rel="stylesheet" href="../Public/CSS/form_validation.css" /> 		
 	</head>
 	<body>
 	<div class="container">

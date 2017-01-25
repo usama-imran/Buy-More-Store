@@ -3,12 +3,14 @@ require_once 'Models/Cart_Model.php';
 /**
  * Cart Controller will be responsible for managing the cart, add/remove/checkout products from the cart.
  */
-class Cart_Controller {
+class Cart_Controller extends Controller
+{
 	
 	private $model_obj;
 	
 	public function __construct()
 	{
+		parent::__construct();
 		$this->model_obj= new Cart_Model();
 	}
 	

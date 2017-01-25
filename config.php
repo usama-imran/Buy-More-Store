@@ -24,12 +24,18 @@ class Database {
 	// Constructor
 	private function __construct() 
 	{
-		$this->_connection = new mysqli($this->_host, $this->_username, $this->_password, $this->_database);
-	
+		try
+		{
+			$this->_connection = new mysqli($this->_host, $this->_username, $this->_password, $this->_database);
 		// Error handling
 		if(mysqli_connect_error()) 
+			{
+				throw new Exception(mysqli_connect_error());
+			}
+		}
+		catch (Exception $e)
 		{
-			trigger_error("Failed to conencto to MySQL: " . mysql_connect_error(),E_USER_ERROR);
+		 print_r($e);
 		}
 	}
 	// Magic method clone is empty to prevent duplication of connection

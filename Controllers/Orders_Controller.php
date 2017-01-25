@@ -1,11 +1,11 @@
 <?php
-require_once 'Models/Orders_Model.php';
-class Orders_Controller 
+class Orders_Controller extends Controller
 {
 	private $model_obj;
 	
 	public function __construct()
 	{
+		parent::__construct();
 		$this->model_obj= new Orders_Model();
 	}
 	

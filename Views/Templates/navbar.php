@@ -8,7 +8,7 @@ else
 $username = "";
 }
 ?>
-<link rel="stylesheet" href="../Sources/CSS/hover.css" />
+<link rel="stylesheet" href="../Public/CSS/hover.css" />
 <!-- navigarion bar implementation -->
 <nav class="navbar navbar-default" >
   <div class="container-fluid">

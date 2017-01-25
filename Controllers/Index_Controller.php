@@ -4,13 +4,14 @@ if(!isset($_SESSION['create_array']))
 	$_SESSION['create_array'] = 1;
 	$_SESSION['pro_array'] = array();
 }
-require_once 'Models/Index_Model.php';
-class Index_Controller
+// require_once 'Models/Index_Model.php';
+class Index_Controller extends Controller
 {
 	private $model_obj;
 	
 	public function __construct()
 	{
+		parent::__construct();
 		$this->model_obj= new Index_Model();
 	}
 	
@@ -22,6 +23,7 @@ class Index_Controller
 	{
 		$result = $this->model_obj->index();
 		require_once 'Views/User/Index.php';
+// 		$this->View->load('User/Index');
 	}
 	/**
 	 * Will load the products by category according to the category clicked
