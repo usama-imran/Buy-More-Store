@@ -1,6 +1,6 @@
 <?php
 session_start();
-define('BASE_URL','/BuyMore/');
+define('BASE_URL','http://localhost:8080/BuyMore/');
 
 function __autoload($class_name)
 {

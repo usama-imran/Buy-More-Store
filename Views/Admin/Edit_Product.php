@@ -6,14 +6,14 @@
 		<title>Edit Product</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="../../Public/JS/bootstrap-filestyle.min.js"> </script>
+		<script type="text/javascript" src="<?php echo BASE_URL; ?>Public/JS/bootstrap-filestyle.min.js"> </script>
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<!-- Script to enable and disable the associated product dropdown list -->
-		<link rel="stylesheet" href="../../Public/CSS/form_style.css" />  
-		<script type="text/javascript" src="../../Public/JS/pro_form_validation.js"></script>
+		<link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/form_style.css" />  
+		<script type="text/javascript" src="<?php echo BASE_URL; ?>Public/JS/pro_form_validation.js"></script>
 		<!-- Javascript to enable & disable associated products  -->
 	</head>
 	<body>
@@ -23,7 +23,7 @@
 	</div>
 	<fieldset class="well">
 		<legend class="well" style="width: 160px">Edit Product</legend>
-		<form action="../edit_product" method="post" id="pro_form" enctype="multipart/form-data"> 
+		<form action="<?php echo BASE_URL; ?>Prooducts_Controller/edit_product" method="post" id="pro_form" enctype="multipart/form-data"> 
 		<input type="hidden" name="product_id" value="<?php echo $pro_id; ?>">
 			<table>
 				<tr>
@@ -100,7 +100,7 @@
 						<button type="submit" class="btn btn-info" aria-label="Left Align">
 							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Edit
 						</button>
-						<a href="../Products" class="btn btn-warning">
+						<a href="<?php echo BASE_URL; ?>Products_Controller/Products" class="btn btn-warning">
 							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
 						</a>		
 					</td>

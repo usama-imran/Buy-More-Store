@@ -91,11 +91,11 @@ margin-top: 10px;
         echo $username;
         echo '</a>';
         echo "&nbsp;&nbsp;";
-      	echo '<a href="../Login_Controller/do_logout" class="signup_btn" style="text-decoration: none;" >Logout</a>';
+      	echo '<a href="'.BASE_URL.'Login_Controller/do_logout" class="signup_btn" style="text-decoration: none;" >Logout</a>';
       }
       else 
       {
-      	echo '<a href="../Login_Controller/login" class="login_btn" style="text-decoration: none;">Login</a>';
+      	echo '<a href="'.BASE_URL.'Login_Controller/login" class="login_btn" style="text-decoration: none;">Login</a>';
       	echo '&nbsp;&nbsp;';
       	echo '<a href="" class="signup_btn" style="text-decoration: none;">Signup</a>';
       }

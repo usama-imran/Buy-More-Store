@@ -1,4 +1,4 @@
-<script type="text/javascript" src="../Sources/JS/add_to_cart.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>Public/JS/add_to_cart.js"></script>
 <?php
 foreach ($pro_by_cat as $item)
 {
@@ -6,7 +6,7 @@ foreach ($pro_by_cat as $item)
 		echo '<div class="thumbnail" data-value="';
 		echo $item['product_id'];
 		echo'">';
-		echo '<img src="../Sources/Images/';
+		echo '<img src="'.BASE_URL.'Public/Images/';
 		echo $item['image'];
 		echo '">';
 		echo '<div class="caption">';

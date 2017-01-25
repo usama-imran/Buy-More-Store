@@ -14,7 +14,7 @@
 		<?php include 'Views/Templates/navbar.php';?>
 	</div>
 	<fieldset class="">
-	<legend class="well">Products - <a href="Add"><button class="btn btn-primary" ><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add New</button></a></legend>
+	<legend class="well">Products - <a href="<?php echo BASE_URL; ?>Products_Controller/Add"><button class="btn btn-primary" ><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add New</button></a></legend>
 	</fieldset>
 	<!-- Requesting categories from the controller and populating the view-->
 	<table width = 100% class="table table-striped table-hover">

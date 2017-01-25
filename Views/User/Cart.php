@@ -8,7 +8,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    	<script type="text/javascript" src="../Sources/JS/cart.js"></script>
+    	<script type="text/javascript" src="<?php echo BASE_URL; ?>Public/JS/cart.js"></script>
 		<style>
 		.check_out
 		{
@@ -96,7 +96,7 @@
 				</td>
 				</tr>
 				</table>
-				<a href="../Index_Controller/Index"><b>Back To Products</b></a>
+				<a href="<?php echo BASE_URL; ?>Index_Controller/Index"><b>Back To Products</b></a>
 			</fieldset>
 			</div>
 		</div>

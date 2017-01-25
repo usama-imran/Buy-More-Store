@@ -9,14 +9,14 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script type="text/javascript" src="../Public/JS/edit.js"></script>
+		<script type="text/javascript" src="<?php echo BASE_URL; ?>Public/JS/edit.js"></script>
 	</head>
 	<body>
 		<div class="container">
 			<div class="row"><?php include 'Views/Templates/navbar.php';?></div>
 			<fieldset>
 				<legend class="well">Categories - 
-					<a href="Add"><button class="btn btn-primary" id="add_new_cat"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add New</button></a>
+					<a href="<?php echo BASE_URL; ?>Categories_Controller/Add"><button class="btn btn-primary" id="add_new_cat"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add New</button></a>
 				</legend>
 			</fieldset>
 			<!-- Requesting categories from the controller and populating the view-->

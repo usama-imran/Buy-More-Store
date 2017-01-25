@@ -4,7 +4,7 @@
 		<style type="text/css">
 			body 
 			{
-		    background-image: url('../Sources/Images/login.jpg');
+		    background-image: url('<?php echo BASE_URL; ?>Public/Images/login.jpg');
 		    background-repeat: no-repeat;
 		    background-attachment: fixed;
 		    -webkit-background-size: cover;
@@ -20,7 +20,6 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script type="text/javascript" src="../Sources/JS/cat_form_validation.js"></script>
 	</head>
 	<body>
 		<center>

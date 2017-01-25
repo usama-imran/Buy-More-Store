@@ -8,10 +8,10 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../Public/CSS/form_style.css" />  
+		<link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/form_style.css" />  
 		
-		<script type="text/javascript" src="../Public/JS/cat_form_validation.js"></script>
-		<link rel="stylesheet" href="../Public/CSS/form_validation.css" /> 		
+		<script type="text/javascript" src="<?php echo BASE_URL; ?>Public/JS/cat_form_validation.js"></script>
+		<link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/form_validation.css" /> 		
 	</head>
 	<body>
 	<div class="container">
@@ -23,7 +23,7 @@
 		<legend class="well" style="width:180px ">Add Category</legend>
 		
 		<!-- Form Started -->
-		<form action="Add_Category" method="post" id="cat_form" >
+		<form action="<?php echo BASE_URL; ?>Categories_Controller/Add_Category" method="post" id="cat_form" >
 			<table>
 				<tr>
 					<td>Name:</td><td><input type="text" class="input_fields" name="name" id="name" ></td><td><i><p id="name_detail" class="error_text"></p></i></td>
@@ -46,7 +46,7 @@
 						<button type="submit" class="btn btn-info" aria-label="Left Align">
 							<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Add
 						</button>
-						<a href="Categories" class="btn btn-warning">
+						<a href="<?php echo BASE_URL; ?>Categories_Controller/Categories" class="btn btn-warning">
 							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
 						</a>
 					</td>

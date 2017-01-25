@@ -4,7 +4,7 @@
     <style type="text/css">
     body 
     	{
-       background-image: url('../Sources/Images/wall.jpg');
+       background-image: url('<?php echo BASE_URL; ?>/Public/Images/wall.jpg');
        background-repeat: no-repeat;
        background-attachment: fixed;
        -webkit-background-size: cover;
@@ -117,7 +117,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    	<script type="text/javascript" src="<?php echo BASE_URL; ?>Sources/JS/get_product_by_category.js"></script>
+    	<script type="text/javascript" src="<?php echo BASE_URL; ?>Public/JS/get_product_by_category.js"></script>
     	
   </head>
   <body>
@@ -141,7 +141,7 @@
       }
       ?>
     <!--  Cart div showing total number of added producs and price sum -->
-      <div id="cart_div" class="cart_div" onclick="window.location='../Cart_Controller/Cart';">
+      <div id="cart_div" class="cart_div" onclick="window.location='<?php echo BASE_URL; ?>Cart_Controller/Cart';">
         <div class="panel panel-info">
           <div class="panel-heading" style="text-align: center;">Your Cart <span class="glyphicon glyphicon-shopping-cart"></span></div>
           <div class="panel-body cart_details">
