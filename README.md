@@ -19,4 +19,12 @@ username:usama.imran@yahoo.com (User)
 
 password: 123
 
+--------------- Naming Convention -------------
+Classes : Proper_Case
+Files (View/Model/Controller): Proper_Case
+Method/Function :lower_case
+Properties: lower_case
+Variables: lower_case
+  
+
 
