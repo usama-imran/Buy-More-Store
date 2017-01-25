@@ -22,8 +22,7 @@ class Index_Controller extends Controller
 	public function index() 
 	{
 		$result = $this->model_obj->index();
-		require_once 'Views/User/Index.php';
-// 		$this->View->load('User/Index');
+ 		$this->View->load('User/Index',$result);
 	}
 	/**
 	 * Will load the products by category according to the category clicked
@@ -40,7 +39,7 @@ class Index_Controller extends Controller
 			$id = 4;
 		}
 		$pro_by_cat = $this->model_obj->get_product_by_category($id);
-		require_once 'Views/User/Product_By_Category.php';
+		$this->View->load('User/Product_By_Category',$pro_by_cat);
 	}
 }
 ?>

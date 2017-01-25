@@ -124,7 +124,9 @@
     <div class="container">
     <div class="row">
       <!-- Including the header page at the top -->
-      <?php include_once 'Views/Templates/page_header.php';?>
+      <?php 
+      include_once 'Views/Templates/page_header.php';
+      ?>
     </div>
     <hr > <!--  Underline on header  -->
     <div class="row">

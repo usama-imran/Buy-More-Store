@@ -15,7 +15,7 @@ class Login_Controller extends Controller
 	 */
 	public function login()
 	{
-		require_once 'Views/login.php';
+		$this->View->Load("Login");
 	}
 	/**
 	 * Will get the info of the user loggin in, authenticate it, and create a session for it.
@@ -37,14 +37,14 @@ class Login_Controller extends Controller
 					$_SESSION['user_info'] = $value['person_id'];
 					$_SESSION['user_name'] = $value ['first_name'];
 					$_SESSION['admin'] = true;
-					header("Location:../Categories_Controller/Categories");
+					header("Location:".BASE_URL."Categories_Controller/Categories");
 				}
 				elseif ($_SESSION['user_type'] == 'user')
 				{
 					$_SESSION['user'] = true;
 					$_SESSION['user_info'] = $value['person_id'];
 					$_SESSION['user_name'] = $value ['first_name'];
-					header("Location:../Index_Controller/Index");
+					header("Location:".BASE_URL."Index_Controller/Index");
 				}
 			}
 		}
@@ -62,6 +62,6 @@ class Login_Controller extends Controller
 	{
 		session_unset();
 		session_destroy();
-		header("Location:../Login_Controller/Login");
+		header("Location:".BASE_URL."Login_Controller/Login");
 	}
 }

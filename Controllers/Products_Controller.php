@@ -20,10 +20,10 @@ class Products_Controller extends Controller
     public function products()
     {
     	if(!isset($_SESSION['admin']))
-    		header("Location:../Login_Controller/Login");
+    		header("Location:".BASE_URL."Login_Controller/Login");
     	
         $result = $this->pro_model_obj->products(); // getting the result from model function
-        require_once 'Views/Admin/products_index.php';
+        $this->View->Load("Admin/products_index",$result);
     }
     /**
     * Will get the view to add category
@@ -67,7 +67,7 @@ class Products_Controller extends Controller
             $associated_product_obj = new Associated_Product();
             $associated_product_obj->create_associated_product($associated_product_id);
         }
-        header("Location:Products");
+        header("Location:".BASE_URL."Products_Controller/Products");
     }
     
     /**
@@ -77,7 +77,7 @@ class Products_Controller extends Controller
     public function edit($id)
     {
     	if(!isset($_SESSION['admin']))
-    		header("Location:../Login_Controller/Login");
+    		header("Location:".BASE_URL."Login_Controller/Login");
     	
     	$products = $this->pro_model_obj->products();
     	$categories = $this->cat_model_obj->categories();
@@ -110,7 +110,7 @@ class Products_Controller extends Controller
     	$pro_is_active = $_POST['is_active'];
     	$this->pro_model_obj->edit_product($pro_id,$pro_name,$pro_price,$pro_quantity,$pro_desc,$pro_category,$pro_is_active);
     	
-    	header("Location:Products");
+    	header("Location:".BASE_URL."Products_Controller/Products");
     }
    
 }

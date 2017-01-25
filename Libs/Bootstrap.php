@@ -8,32 +8,25 @@ class Bootstrap
 		$url = explode("/", $url);
 		$file = 'Controllers/'.$url[0].'.php';
 		
-		try
+		
+		if(file_exists($file))
 		{
-			if(file_exists($file))
+			include_once $file;
+			$controller = new $url[0];
+		}
+		else 
+		{
+			if(empty($url[0]))
 			{
-				include_once $file;
-				$controller = new $url[0];
+				require_once 'Controllers/Index_Controller.php';
+				$controller = new Index_Controller();
+				$controller->Index();
+				return false;
 			}
 			else 
 			{
-				throw new Exception("There is no such file or directory as: ".$file);
+				echo "Nothing to display";
 			}
-		}
-		catch (Exception $e)
-		{
-			echo "Nothing to display";
-// 			require_once 'Controllers/Index_Controller.php';
-// 			$controller = new Index_Controller();
-// 			$controller->Index();
-		}
-		
-		if(empty($url[0]))
-		{
-			require_once 'Controllers/Index_Controller.php';
-			$controller = new Index_Controller();
-			$controller->Index();
-			return false;
 		}
 		if (isset($url[2]))
 		{

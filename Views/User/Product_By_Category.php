@@ -1,6 +1,6 @@
 <script type="text/javascript" src="<?php echo BASE_URL; ?>Public/JS/add_to_cart.js"></script>
 <?php
-foreach ($pro_by_cat as $item)
+foreach ($result as $item)
 {
 		echo'<div class="col-sm-6 col-md-4">';
 		echo '<div class="thumbnail" data-value="';

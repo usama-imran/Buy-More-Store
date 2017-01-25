@@ -19,7 +19,7 @@ class Cart_Controller extends Controller
  */
  function cart()
  {
- 	require_once 'Views/User/Cart.php';
+ 	$this->View->Load("User/Cart");
  }
 
  /**

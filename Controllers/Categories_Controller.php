@@ -18,10 +18,10 @@ class Categories_Controller extends Controller
     public function categories()
     {
     	if(!isset($_SESSION['admin']))
-    		header("Location:../Login_Controller/Login");
+    		header("Location:".BASE_URL."Login_Controller/Login");
     	
         $result = $this->model_obj->categories(); // getting the result from model function
-        require_once 'Views/Admin/categories_index.php';
+        $this->View->Load("Admin/Categories_Index",$result);
     }
     /**
     * Will get the view to add category
@@ -31,7 +31,8 @@ class Categories_Controller extends Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:../Login_Controller/Login");
     	
-    	require_once 'Views/Admin/Add_Category.php';
+    	$this->View->Load("Admin/Add_Category");
+    	
     }
     /**
      * Will add the row category
@@ -45,7 +46,7 @@ class Categories_Controller extends Controller
     	$cat_created_by = $_REQUEST['created_by'];
     	// Creating the object of the model class to call its method to post requested data
     	$this->model_obj->add_category($cat_name,$cat_description,$cat_is_active,$cat_created_by);
-    	header("Location:Categories");
+    	header("Location:".BASE_URL."Categories_Controller/Categories");
     }
     /**
      * Will edit the row
