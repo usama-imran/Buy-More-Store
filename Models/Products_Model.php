@@ -1,18 +1,9 @@
 <?php
-require_once 'config.php';
 /**
 * CRUD Operations on categories on Model level
 */
-class Products_Model
+class Products_Model extends Model
 {
-	private $conn;
-	
-	public function __construct()
-	{
-		$db= Database::getInstance();
-		$this->conn=$db->getConnection();
-	}
-	
 	/**
 	 * Method to get all the rows of the table
 	 * @return $array
@@ -24,8 +15,7 @@ class Products_Model
             JOIN users ON product.created_by=users.person_id
             JOIN category ON product.cat_id=category.cat_id";
 	$result = $this->conn->query($sql_query);
-    $array = mysqli_fetch_all($result,true);
-    return $array;
+    return $result;
 	}
 	/**
 	* Add a new product to database table

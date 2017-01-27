@@ -1,14 +1,6 @@
 <?php
-require_once 'config.php';
-class Cart_Model
+class Cart_Model extends Model
 {
-	private $conn;
-	
-	public function __construct()
-	{
-		$db= Database::getInstance();
-		$this->conn=$db->getConnection();
-	}
 	/**
 	 * Will post the checked out cart to the database tables. 
 	 * Insertion will take place at two places.

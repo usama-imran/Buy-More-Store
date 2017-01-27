@@ -1,7 +1,7 @@
 <?php
 session_start();
 define('BASE_URL','http://localhost:8080/BuyMore/');
-
+require_once 'config.php';
 function __autoload($class_name)
 {
 	if(is_file("Libs/".$class_name.".php"))

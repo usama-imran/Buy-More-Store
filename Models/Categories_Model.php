@@ -1,18 +1,10 @@
 <?php
-require_once 'config.php';
+
 /**
 * CRUD Operations on categories on Model level
 */
-class Categories_Model
+class Categories_Model extends Model
 {
-	private $conn;
-	
-	public function __construct()
-	{
-		$db= Database::getInstance();
-		$this->conn=$db->getConnection();
-	}
-	
 	/**
 	 * Method to get all the rows of the table
 	 * @return array $array
@@ -21,8 +13,7 @@ class Categories_Model
 	{
 	$sql_query = "SELECT category.cat_id,category.cname,category.description,category.date_created , users.first_name FROM category JOIN users ON category.created_by=users.person_id;";
     $result = $this->conn->query($sql_query);
-    $array = mysqli_fetch_all($result,true);
-    return $array;
+    return $result;
 	}
 	/**
 	 * Will add a new category

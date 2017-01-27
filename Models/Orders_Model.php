@@ -1,14 +1,6 @@
 <?php
-require_once 'config.php';
-class Orders_Model
+class Orders_Model extends Model
 {
-	private $conn;
-	
-	public function __construct()
-	{
-		$db= Database::getInstance();
-		$this->conn=$db->getConnection();
-	}
 	/**
 	 * Select the order along with their details from the databas
 	 * @return array Will be an associative array
@@ -18,9 +10,7 @@ class Orders_Model
 		$order = "SELECT * FROM cart";
 		$cart = "SELECT C.order_id, P.name, CP.quantity, U.first_name , C.credit_card_no FROM cart C JOIN cart_products CP ON C.order_id = CP.order_id JOIN users U ON CP.person_id = U.person_id JOIN product P ON CP.product_id = P.product_id";
 		$order_result = $this->conn->query($order);
-		$order_result = mysqli_fetch_all($order_result,true);
 		$cart_result = $this->conn->query($cart);
-		$cart_result = mysqli_fetch_all($cart_result,true);
 		return array ($order_result,$cart_result);		
 	}
 	/**
