@@ -16,7 +16,7 @@
 	<body>
 	<div class="container">
 	<div class="row">
-		<?php include 'Views/templates/navbar.php';?>
+		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/BuyMore/Views/Templates/navbar.php';?>
 	</div>
 	<fieldset>
 	<legend class="well">Orders </legend>

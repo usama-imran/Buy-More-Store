@@ -30,7 +30,7 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<?php include 'Views/templates/page_header.php';?>
+				<?php include_once 'Views/templates/page_header.php';?>
 			</div>
 			<hr>
 			<div class="row" id="cart">

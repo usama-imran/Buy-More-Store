@@ -19,14 +19,10 @@ class Bootstrap
 		{
 			if(empty($url[0]))
 			{
-				require_once 'Controllers/Index_Controller.php';
 				$controller = new Index_Controller();
+				$controller->load_model("Index");
 				$controller->Index();
 				return false;
-			}
-			else 
-			{
-				echo "Nothing to display";
 			}
 		}
 		if (isset($url[2]))
