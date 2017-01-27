@@ -1,25 +1,15 @@
 <?php
-require_once 'Models/Cart_Model.php';
 /**
  * Cart Controller will be responsible for managing the cart, add/remove/checkout products from the cart.
  */
 class Cart_Controller extends Controller
 {
-	
-	private $model_obj;
-	
-	public function __construct()
-	{
-		parent::__construct();
-		$this->model_obj= new Cart_Model();
-	}
-	
  /**
  * Will load the cart view
  */
  function cart()
  {
- 	$this->View->Load("User/Cart");
+ 	$this->View->Load("Cart");
  }
 
  /**
@@ -70,7 +60,7 @@ class Cart_Controller extends Controller
  function check_out() 
  {
 	$user_id = $_SESSION['user_info'];
-	$this->model_obj->check_out($user_id);
+	$this->Model->check_out($user_id);
 	unset($_SESSION['create_array']);
 	unset($_SESSION['pro_array']);
  } 

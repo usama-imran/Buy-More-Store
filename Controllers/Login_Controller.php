@@ -1,14 +1,6 @@
 <?php
-require_once 'Models/Login_Model.php';
 class Login_Controller extends Controller
 {
-	private $model_obj;
-	
-	public function __construct()
-	{
-		parent::__construct();
-		$this->model_obj= new Login_Model();
-	}
 	/**
 	 * Will load the login view
 	 * @return void
@@ -26,7 +18,7 @@ class Login_Controller extends Controller
 		$user_email = $_REQUEST['email'];
 		$user_password = $_REQUEST['password'] ;
 		//Model class object creation for getting the users data.		
-		$reslut = $this->model_obj->login($user_email,$user_password);
+		$reslut = $this->Model->login($user_email,$user_password);
 		if($reslut)
 		{
 			foreach ($reslut as $value)

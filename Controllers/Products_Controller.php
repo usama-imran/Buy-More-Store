@@ -23,7 +23,7 @@ class Products_Controller extends Controller
     		header("Location:".BASE_URL."Login_Controller/Login");
     	
         $result = $this->pro_model_obj->products(); // getting the result from model function
-        $this->View->Load("Admin/products_index",$result);
+        $this->View->Load("products_index",$result);
     }
     /**
     * Will get the view to add category
@@ -35,7 +35,7 @@ class Products_Controller extends Controller
     	
     	$products = $this->pro_model_obj->products();
     	$categories = $this->cat_model_obj->categories();
-    	require_once 'Views/Admin/Add_Product.php';
+    	require_once 'Views/Add_Product.php';
     }
     /**
      * Will add the row category
@@ -92,7 +92,7 @@ class Products_Controller extends Controller
     		$pro_cat_id = $pro_form_var['cat_id'];
     		$pro_is_active = $pro_form_var['is_active'];
     	}
-    	require_once 'Views/Admin/Edit_Product.php';
+    	require_once 'Views/Edit_Product.php';
     }
     /**
      * Will edit the row

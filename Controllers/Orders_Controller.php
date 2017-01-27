@@ -1,14 +1,6 @@
 <?php
 class Orders_Controller extends Controller
 {
-	private $model_obj;
-	
-	public function __construct()
-	{
-		parent::__construct();
-		$this->model_obj= new Orders_Model();
-	}
-	
 	/**
 	 * Function get the list of orders along with their details.
 	 * @return void
@@ -18,8 +10,8 @@ class Orders_Controller extends Controller
 		if(!isset($_SESSION['admin']))
 			header("Location:".BASE_URL."Login_Controller/Login");
 		
-		$result = $this->model_obj->Orders();
-		$this->View->load('Admin/order_index',$result);
+		$result = $this->Model->Orders();
+		$this->View->load('order_index',$result);
 		
 	}
 	/**
@@ -30,6 +22,6 @@ class Orders_Controller extends Controller
 	{
 		$id = $_POST['order_id'];
 		$active = $_POST['active'];
-		$this->model_obj->Delivery_Status($id,$active);
+		$this->Model->Delivery_Status($id,$active);
 	}
 }
