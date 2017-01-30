@@ -3,11 +3,11 @@ E-Commerce web application using OOP &amp; Php
 
 ---------------------URLs----------------------
 
-localhost/BuyMore/Login_Controller/Login
+localhost/BuyMore/Login_Controller/Login (Login Page)
 
-localhost/BuyMore/Index_Controller/Index (User)
+localhost/BuyMore/ || localhost/BuyMore/Index_Controller/Index (User/Home Page)
 
-localhost/BuyMore/Categories_Controller/Categories (Admin Login Required)
+localhost/BuyMore/Categories_Controller/Categories (Admin Panel / Admin Login Required)
 
 ------------------ Login Info -----------------
 
