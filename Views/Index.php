@@ -42,7 +42,7 @@
     }
     img
     {
-      height: 142px ;
+      height: 142px !important;
       max-height:142;
       width: 250px ;
     }

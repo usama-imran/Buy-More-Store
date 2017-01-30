@@ -23,7 +23,7 @@ foreach ($result as $item)
 		echo '<p class="center_text"id="pro_description';
 		echo $item['product_id'];
 		echo'">';
-		echo $item['description'];
+		echo  mb_strimwidth($item['description'], 0, 24, "...");
 		echo '</p>';
 		echo '<center><input type="number" value="1" min="1" class="input_fields" style="text-align:center" id="quantity' ;
 		echo $item['product_id'];

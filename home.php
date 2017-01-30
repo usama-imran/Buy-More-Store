@@ -19,6 +19,20 @@ function __autoload($class_name)
 		include_once "Controllers/".$class_name.".php";
 	}
 }
-new Bootstrap();
+try 
+{
+	if(class_exists('Bootstrap'))
+	{
+	 new Bootstrap();
+	}
+	else
+	{
+		throw new Exception("Error");
+	}
+}
+catch (Exception $e)
+{
+	new Error_Controller();
+}
 
 ?>

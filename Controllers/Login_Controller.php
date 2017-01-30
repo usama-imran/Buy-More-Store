@@ -42,8 +42,7 @@ class Login_Controller extends Controller
 		}
 		else
 		{
-			$error_message = "Invalid Email/Password";
-			echo $error_message;
+			header("Location:".BASE_URL."Login_Controller/Login");
 		}
 	}
 	/**
