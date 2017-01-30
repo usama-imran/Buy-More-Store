@@ -8,6 +8,6 @@ class View
 	 */
 	public function load($name,$result = Null)
 	{
-		require_once 'Views/'.$name.'.php';
+		require_once $_SERVER['DOCUMENT_ROOT'].'/BuyMore/Views/'.$name.'.php';
 	}
 }
