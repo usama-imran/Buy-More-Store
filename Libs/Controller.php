@@ -25,30 +25,56 @@ class Controller
 	 */
 	public  function execute_method($url)
 	{
-		$url = explode("/", $url);
-		$file = 'Controllers/'.$url[0].'.php';
 		
-		if(file_exists($file))
+		$url = explode("/", $url);
+		if(empty($url[0]))
 		{
-			include_once $file;
-			$controller = new $url[0];
-			$name = explode("_",$url[0]);
-			$controller->load_model($name[0]);
-			// Check if there is a method name in the url
-			if (isset($url[1]))
+			$index = new Index_Controller();
+			$index->load_model("Index");
+			$index ->index();
+		}
+		$file = 'Controllers/'.$url[0].'.php';
+		try
+		{
+			if(file_exists($file))
 			{
-				$controller->{$url[1]}();
+				include_once $file;
+				$controller = new $url[0];
+				$name = explode("_",$url[0]);
+				$controller->load_model($name[0]);
+				// Check if there is a method name in the url
+				if (isset($url[1]))
+				{
+					try
+					{
+						if(method_exists($controller,$url[1]))
+						{
+							$controller->{$url[1]}();
+						}
+						else
+						{
+							throw new Exception("Error");
+						}
+					}
+					catch (Exception $e)
+					{
+						new Error_Controller();
+					}
+				}
+				else if (isset($url[2]))
+				{
+					$controller->{$url[1]}($url[2]);
+				}			
 			}
-			else if (isset($url[2]))
+			else 
 			{
-				$controller->{$url[1]}($url[2]);
-			}			
+				throw new Exception("Error");
+			}
 		}
-		else if(empty($url[0]))
+		catch (Exception $e)
 		{
-			$controller = new Index_Controller();
-			$controller->load_model("Index");
-			$controller->Index();
+			new Error_Controller();
 		}
+		
 	}
 }
