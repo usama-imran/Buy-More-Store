@@ -19,5 +19,14 @@ function __autoload($class_name)
 	}
 }
 
-$app = new Bootstrap();
+
+try 
+{
+	$app = new Bootstrap();
+}
+catch (Exception $e)
+{
+	$error = new Error_Controller();
+}
+
 ?>
