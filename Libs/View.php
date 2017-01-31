@@ -8,6 +8,6 @@ class View
 	 */
 	public function load($name,$result = Null)
 	{
-		require_once $_SERVER['DOCUMENT_ROOT'].'/BuyMore/Views/'.$name.'.php';
+		require_once BASE_PATH.'/Views/'.$name.'.php';
 	}
 }

@@ -4,6 +4,14 @@
  */
 class Cart_Controller extends Controller
 {
+
+private $Model;
+	
+public function __construct()
+{
+	parent::__construct();
+	$this->Model= new Cart_Model();
+}
  /**
  * Will load the cart view
  */

@@ -1,6 +1,13 @@
 <?php
 class Login_Controller extends Controller
 {
+	private $Model;
+	
+	public function __construct()
+	{
+		parent::__construct();
+		$this->Model= new Login_Model();
+	}
 	/**
 	 * Will load the login view
 	 * @return void

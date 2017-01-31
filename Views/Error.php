@@ -131,10 +131,10 @@
    		<div class="col-md-12">
    			<div class="jumbotron">
 				<h2>
-					404 Not Found :(
+					Sory Something Went Wrong :(
 				</h2>
 				<p>
-					Sory the page you are looking for cannot be found. 
+					Please contact your administrator. 
 				</p>
 				<p>
 					<a class="btn btn-primary btn-large" href="<?php echo BASE_URL?>/Index_Controller/Index">Buy More?</a>
