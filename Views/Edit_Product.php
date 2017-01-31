@@ -19,7 +19,7 @@
 	<body>
 	<div class="container">
 	<div class="row">
-		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/BuyMore/Views/Templates/navbar.php';?>
+		<?php include_once BASE_PATH.'/Views/Templates/navbar.php';?>
 	</div>
 	<fieldset class="well">
 		<legend class="well" style="width: 160px">Edit Product</legend>

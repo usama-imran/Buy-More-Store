@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="row"><?php include_once $_SERVER['DOCUMENT_ROOT'].'/BuyMore/Views/Templates/navbar.php';?></div>
+			<div class="row"><?php include_once BASE_PATH.'/Views/Templates/navbar.php';?></div>
 			<fieldset>
 				<legend class="well">Categories - 
 					<a href="<?php echo BASE_URL; ?>Categories_Controller/Add"><button class="btn btn-primary" id="add_new_cat"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add New</button></a>

@@ -23,7 +23,7 @@ class Controller
 	 * Will Execute the method in the url
 	 * @param string $url 
 	 */
-	public  function execute_method($url)
+	public  function execute($url)
 	{
 		
 		$url = explode("/", $url);

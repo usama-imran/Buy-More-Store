@@ -11,7 +11,7 @@
 	<body>
 	<div class="container">
 	<div class="row">
-		<?php include_once $_SERVER['DOCUMENT_ROOT'].'/BuyMore/Views/Templates/navbar.php';?>
+		<?php include_once BASE_PATH.'/Views/Templates/navbar.php';?>
 	</div>
 	<fieldset class="">
 	<legend class="well">Products - <a href="<?php echo BASE_URL; ?>Products_Controller/Add"><button class="btn btn-primary" ><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add New</button></a></legend>

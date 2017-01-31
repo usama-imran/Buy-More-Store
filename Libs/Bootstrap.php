@@ -6,6 +6,6 @@ class Bootstrap
 	{
 		$url = isset($_GET['url']) ? $_GET['url'] : null;
 		$call_execute = new Controller();
-		$call_execute->execute_method($url);
+		$call_execute->execute($url);
 	}
 }

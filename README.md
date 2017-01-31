@@ -24,6 +24,10 @@ Classes : Proper_Case
 
 Files (View/Model/Controller): Proper_Case
 
+Note: Model Name Should be the same as the controller name. i.e
+
+Controller = Name_Controller & Model = Name_Model
+
 Method/Function :lower_case
 
 Properties: lower_case
