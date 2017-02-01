@@ -19,7 +19,6 @@ password: 123
 
 ## Naming Convention
 - Classes : Proper_Case
-<<<<<<< HEAD
 
 - Files (View/Model/Controller): Proper_Case
 
@@ -28,22 +27,6 @@ password: 123
 - Properties: lower_case
 
 - Variables: lower_case
-=======
-
-- Files (View/Model/Controller): Proper_Case
-
-- Method/Function :lower_case
-
-- Properties: lower_case
-
-- Variables: lower_case
-
->>>>>>> 7fea01b891d882aaf91c67c7c1cdfda1060a539f
-
-> Note : Model Name Should be the same as the controller name followed by _Parent. i.e
-```
-Controller = Name_Controller & Model = Name_Model
-```
 
 > Note : Model Name Should be the same as the controller name followed by _Parent. i.e
 ```
