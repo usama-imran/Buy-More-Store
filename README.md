@@ -2,15 +2,13 @@
 E-Commerce web application using OOP &amp; Php
 
 ## URLs
-
 localhost/BuyMore/Login_Controller/Login (Login Page)
 
 localhost/BuyMore/ || localhost/BuyMore/Index_Controller/Index (User/Home Page)
 
 localhost/BuyMore/Categories_Controller/Categories (Admin Panel / Admin Login Required)
 
------------------- Login Info -----------------
-
+## Login Info
 username: usama.imran@rolustech.com (Admin)
 
 password: 123
@@ -19,7 +17,7 @@ username:usama.imran@yahoo.com (User)
 
 password: 123
 
---------------- Naming Convention -------------
+## Naming Convention
 Classes : Proper_Case
 
 Files (View/Model/Controller): Proper_Case
