@@ -29,9 +29,8 @@ password: 123
 - Variables: lower_case
 
 
-> Note 
-Model Name Should be the same as the controller name. i.e
-
+> Note : Model Name Should be the same as the controller name followed by _Parent. i.e
+```
 Controller = Name_Controller & Model = Name_Model
-
+```
 
