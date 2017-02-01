@@ -1,7 +1,7 @@
 # Buy-More-Store
 E-Commerce web application using OOP &amp; Php
 
----------------------URLs----------------------
+## URLs
 
 localhost/BuyMore/Login_Controller/Login (Login Page)
 
