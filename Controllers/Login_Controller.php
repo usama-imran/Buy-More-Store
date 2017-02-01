@@ -1,13 +1,6 @@
 <?php
 class Login_Controller extends Controller
 {
-	private $Model;
-	
-	public function __construct()
-	{
-		parent::__construct();
-		$this->Model= new Login_Model();
-	}
 	/**
 	 * Will load the login view
 	 * @return void
@@ -28,6 +21,7 @@ class Login_Controller extends Controller
 		$reslut = $this->Model->login($user_email,$user_password);
 		if($reslut)
 		{
+			
 			foreach ($reslut as $value)
 			{
 				$_SESSION['user_type'] = $value['type']; // get the type of the user i.e Admin/User
@@ -46,6 +40,7 @@ class Login_Controller extends Controller
 					header("Location:".BASE_URL."Index_Controller/Index");
 				}
 			}
+			
 		}
 		else
 		{

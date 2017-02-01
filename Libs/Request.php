@@ -6,9 +6,8 @@ class Request
             $action = null,
             $args = null;
 
-    public function __construct($url) {
-    	
-        $this->manage_url($url);
+    public function __construct() {
+        $this->manage_url();
         if($this->page_exist()){
             $this->request();
         } else {
@@ -18,6 +17,8 @@ class Request
 
     private function request(){
         $controller = new $this->controller();
+        $model = explode("_",$this->controller);
+        $controller->load_model($model[0]);
         if(!$this->args){ $controller->{$this->action}(); }
         else{
            $count_args = count($this->args);
@@ -41,8 +42,8 @@ class Request
     /**
      * Get controller, action and parametes
      */
-    private function manage_url($url){
-        $uri = $url;
+    private function manage_url(){
+        $uri = isset($_GET['url']) ? $_GET['url'] : null;;
         $uri = trim($uri, '/');
         $this->remove_query_or_hash($uri);
         $exploded_uri = explode('/', $uri);
@@ -51,8 +52,6 @@ class Request
         $this->args = array_slice($exploded_uri, 2);
     }
 	
-   
-    
     private function remove_query_or_hash(&$uri){
         $query = strpos($uri, '?');
         $hash = strpos($uri, '#');

@@ -1,13 +1,6 @@
 <?php
 class Orders_Controller extends Controller
 {
-	private $Model;
-	
-	public function __construct()
-	{
-		parent::__construct();
-		$this->Model= new Orders_Model();
-	}
 	/**
 	 * Function get the list of orders along with their details.
 	 * @return void

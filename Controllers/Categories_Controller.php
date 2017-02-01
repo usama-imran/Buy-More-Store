@@ -4,13 +4,6 @@
 */
 class Categories_Controller extends Controller
 {
-	private $Model;
-	
-	public function __construct()
-	{
-		parent::__construct();
-		$this->Model= new Categories_Model();
-	}
     /**
     * Will get a list of all the categories from the database
     * @return $data 

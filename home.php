@@ -5,12 +5,10 @@ define ('BASE_PATH',dirname(__FILE__));
 
 require_once 'database.php';
 require_once 'autoload.php';
-$url = isset($_GET['url']) ? $_GET['url'] : null;
-
 try 
 {
-	if(class_exists('Bootstrap'))
-	{ new Request($url);}
+	if(class_exists('Request'))
+	{ new Request();}
 	else
 	{ throw new Exception("Error");}
 }
