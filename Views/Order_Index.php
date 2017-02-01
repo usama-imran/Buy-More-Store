@@ -15,9 +15,7 @@
 	</head>
 	<body>
 	<div class="container">
-	<div class="row">
-		<?php include_once BASE_PATH.'/Views/Templates/navbar.php';?>
-	</div>
+	
 	<fieldset>
 	<legend class="well">Orders </legend>
 	</fieldset>

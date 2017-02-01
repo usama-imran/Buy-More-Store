@@ -72,6 +72,8 @@ margin-top: 10px;
   text-decoration: none;
 }
 </style>
+
+<div class="Container">
 <div class="header_box">
   <table style="width: 100%">
   <tr>
@@ -104,4 +106,5 @@ margin-top: 10px;
   </td>
   </tr>
   </table>
+</div>
 </div>

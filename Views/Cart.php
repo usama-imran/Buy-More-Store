@@ -69,9 +69,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="row">
-				<?php include_once BASE_PATH.'/Views/templates/page_header.php';?>
-			</div>
+			
 			<hr>
 			<div class="row" id="cart">
 			<fieldset class="well" style="background-color: rgba(106, 44, 175, 0.1);" >
@@ -140,10 +138,6 @@
 			</fieldset>
 			</div>
 			
-		<div class="row"> <!-- row for footer started -->
-      		<?php include_once BASE_PATH.'/Views/Templates/footer.php';?>
-    	</div> <!-- row for footer Ended-->
-    
 		</div>
 	</body>
 </html>

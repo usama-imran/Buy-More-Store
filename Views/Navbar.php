@@ -9,6 +9,7 @@ $username = "";
 }
 ?>
 <link rel="stylesheet" href="<?php echo BASE_URL; ?>Public/CSS/hover.css" />
+<div class="Container">
 <!-- navigarion bar implementation -->
 <nav class="navbar navbar-default" >
   <div class="container-fluid">
@@ -23,3 +24,4 @@ $username = "";
     </ul>
   </div>
 </nav> 
+</div>

@@ -1,3 +1,6 @@
+
+<div class="Container">
+
 <div class="footer_social">
 	<div class="col-md-3" style="border-right: solid 30px; padding-top: 10px"> 
 		<h3 style="font-family: Stencil Std;">Follow Us</h3>
@@ -24,4 +27,6 @@
 			<li>Fax: 12-45-8897-858</li>
 		</ul>
 	</div>
+</div>
+
 </div>

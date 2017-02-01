@@ -134,10 +134,13 @@
 					Sory Something Went Wrong :(
 				</h2>
 				<p>
-					Please contact your administrator. 
+					Surfin' ain't easy, and right now, you're lost at sea. But don't worry; simply pick an option from the list below, and you'll be back out riding the waves of the Internet in no time. 
 				</p>
 				<p>
-					<a class="btn btn-primary btn-large" href="<?php echo BASE_URL?>/Index_Controller/Index">Buy More?</a>
+					<ul>
+					<li>Hit the "back" button on your browser. It's perfect for situations like this!</li>
+					<li>Head on over to the<a href="<?php echo BASE_URL?>/Index_Controller/Index"> home page</a></li>
+					</ul>
 				</p>
 			</div>
    		</div>

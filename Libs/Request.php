@@ -6,23 +6,30 @@ class Request
             $action = null,
             $args = null;
 
-    public function __construct() {
+    public function __construct() 
+    {
         $this->manage_url();
-        if($this->page_exist()){
+        if($this->page_exist())
+        {
             $this->request();
-        } else {
+        } 
+        else 
+        {
             $error = new Error_Controller();
         }
     }
 
-    private function request(){
+    private function request()
+    {
         $controller = new $this->controller();
         $model = explode("_",$this->controller);
         $controller->load_model($model[0]);
         if(!$this->args){ $controller->{$this->action}(); }
-        else{
+        else
+        {
            $count_args = count($this->args);
-           switch ($count_args) {
+           switch ($count_args) 
+           {
                case 1:
                    $controller->{$this->action}($this->args[0]);
                    break;
@@ -38,11 +45,13 @@ class Request
            }
         }
     }
-
+	
+   
     /**
      * Get controller, action and parametes
      */
-    private function manage_url(){
+    private function manage_url()
+    {
         $uri = isset($_GET['url']) ? $_GET['url'] : null;;
         $uri = trim($uri, '/');
         $this->remove_query_or_hash($uri);
@@ -52,22 +61,25 @@ class Request
         $this->args = array_slice($exploded_uri, 2);
     }
 	
-    private function remove_query_or_hash(&$uri){
+    private function remove_query_or_hash(&$uri)
+    {
         $query = strpos($uri, '?');
         $hash = strpos($uri, '#');
-        if($query!==FALSE||$hash!==FALSE){
+        if($query!==FALSE||$hash!==FALSE)
+        {
             $idx =  $query < $hash ? $hash : $query;
             $uri = substr($uri, 0, $idx);
         }
     }
 
-    private function page_exist(){
+    private function page_exist()
+    {
     	$controller = class_exists($this->controller);
         $method = method_exists($this->controller, $this->action);
-        if(!$controller||!$method){
+        if(!$controller||!$method)
+        {
             return FALSE;
         }
         return TRUE;
-        
     }
 }

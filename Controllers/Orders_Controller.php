@@ -10,6 +10,7 @@ class Orders_Controller extends Controller
 		if(!isset($_SESSION['admin']))
 			header("Location:".BASE_URL."Login_Controller/Login");
 		
+		$this->View->load('Navbar');
 		$result = $this->Model->Orders();
 		$this->View->load('order_index',$result);
 		

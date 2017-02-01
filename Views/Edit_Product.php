@@ -18,9 +18,7 @@
 	</head>
 	<body>
 	<div class="container">
-	<div class="row">
-		<?php include_once BASE_PATH.'/Views/Templates/navbar.php';?>
-	</div>
+	
 	<fieldset class="well">
 		<legend class="well" style="width: 160px">Edit Product</legend>
 		<form action="<?php echo BASE_URL; ?>Prooducts_Controller/edit_product" method="post" id="pro_form" enctype="multipart/form-data"> 

@@ -13,9 +13,11 @@ class Index_Controller extends Controller
 	 */
 	public function index() 
 	{
+		$this->View->load('Page_Header');
 		$model = new Index_Model();
 		$result = $this->Model->index();
  		$this->View->load('Index',$result);
+ 		$this->View->load('Footer');
 	}
 	/**
 	 * Will load the products by category according to the category clicked

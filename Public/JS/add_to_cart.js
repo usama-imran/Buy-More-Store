@@ -36,7 +36,6 @@ $(function(){
 		  drop:function(e, ui)
 		  {
 		   var param = $(ui.draggable).attr('data-value');
-		   console.log("Yow");
 		   DropToCart(param);
 		  }
 		 });
@@ -67,7 +66,8 @@ $(function(){
 	
 	
 	// Method to add products to the cart on button click
-	function AddToCart (){
+	function AddToCart ()
+	{
 			var pro_id = $(this).attr('data-value');
 			
 			var pro_name = $('#pro_name'+pro_id+'').text();
@@ -92,10 +92,8 @@ $(function(){
 			        function(msg){
 			        	console.log(msg);
 			        	$('#cart_div').empty().load(' #cart_div');
-			        	
 			        });
-				
-		}
+	}
 	
 	
 	

@@ -15,9 +15,7 @@
 	</head>
 	<body>
 	<div class="container">
-	<div class="row">
-		<?php include_once BASE_PATH.'/Views/Templates/navbar.php';?>
-	</div>
+	
 	<fieldset class="well">
 		<legend class="well" style="width: 160px">Add Product</legend>
 		<form action="<?php echo BASE_URL; ?>Products_Controller/Add_Product" method="post" id="pro_form" enctype="multipart/form-data"> 

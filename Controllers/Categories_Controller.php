@@ -13,6 +13,7 @@ class Categories_Controller extends Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:".BASE_URL."Login_Controller/Login");
     	
+    	$this->View->Load("Navbar");
         $result = $this->Model->categories(); // getting the result from model function
         $this->View->Load("Categories_Index",$result);
     }
@@ -24,8 +25,8 @@ class Categories_Controller extends Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:../Login_Controller/Login");
     	
+    	$this->View->Load("Navbar");
     	$this->View->Load("Add_Category");
-    	
     }
     /**
      * Will add the row category

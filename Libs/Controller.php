@@ -21,5 +21,5 @@ class Controller
 			$this->Model = new $model_name();
 		}
 	}
-
+	
 }

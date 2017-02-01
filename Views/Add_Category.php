@@ -15,10 +15,7 @@
 	</head>
 	<body>
 	<div class="container">
-	<div class="row">
-		<!-- including the navigation bar template -->
-		<?php include_once BASE_PATH.'/Views/Templates/navbar.php';?>		
-	</div>
+	
 	<fieldset class="well">
 		<legend class="well" style="width:180px ">Add Category</legend>
 		
