@@ -81,7 +81,7 @@
          -o-transform: scale(1.1);
      }
      .social 
-     {
+     { 
          -webkit-transform: scale(0.8);
          /* Browser Variations: */
          -moz-transform: scale(0.8);
@@ -122,10 +122,7 @@
   </head>
   <body>
     <div class="container">
-    <div class="row">
-      <!-- Including the header page at the top -->
-      <?php include_once BASE_PATH.'/Views/Templates/page_header.php';?>
-    </div>
+    
     <hr > <!--  Underline on header  -->
     <div class="row">
    		<div class="col-md-12">
@@ -139,16 +136,14 @@
 				<p>
 					<ul>
 					<li>Hit the "back" button on your browser. It's perfect for situations like this!</li>
-					<li>Head on over to the<a href="<?php echo BASE_URL?>/Index_Controller/Index"> home page</a></li>
+					<li>Head on over to the<a href="<?php echo BASE_URL?>Index_Controller/Index"> home page</a></li>
 					</ul>
 				</p>
 			</div>
    		</div>
     </div> <!-- 2nd row ended -->
     <hr>
-    <div class="row"> <!-- 3rd row for footer started -->
-      <?php include_once BASE_PATH.'/Views/Templates/footer.php';?>
-    </div> <!-- 3rd row for footer Ended-->
+    
     </div> <!-- container div ended -->
   </body>
 </html>

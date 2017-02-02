@@ -46,7 +46,6 @@ class Request
         }
     }
 	
-   
     /**
      * Get controller, action and parametes
      */
@@ -61,6 +60,21 @@ class Request
         $this->args = array_slice($exploded_uri, 2);
     }
 	
+    private function get_controller()
+    {
+    	return $this->controller;
+    }
+    
+    private function get_action()
+    {
+    	return $this->action;
+    }
+    
+    private function get_args()
+    {
+    	return $this->args;
+    }
+    
     private function remove_query_or_hash(&$uri)
     {
         $query = strpos($uri, '?');
