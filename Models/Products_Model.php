@@ -62,4 +62,3 @@ class Products_Model extends Model
 		$this->conn->query($sql_query);
 	}
 }
-?>

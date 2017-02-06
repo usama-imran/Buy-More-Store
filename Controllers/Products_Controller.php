@@ -74,16 +74,16 @@ class Products_Controller extends Controller
     
     /**
      * Will populate the edit view with product information
-     * @param number $id
+     * @param array $param
      */
-    public function edit($id)
+    public function edit($param)
     {
     	if(!isset($_SESSION['admin']))
     		header("Location:".BASE_URL."Login_Controller/Login");
     	
     	$products = $this->pro_model_obj->products();
     	$categories = $this->cat_model_obj->categories();
-    	$product_detail = $this->pro_model_obj->edit($id);
+    	$product_detail = $this->pro_model_obj->edit($param[0]);
     	foreach ($product_detail as $pro_form_var)
     	{
     		$pro_id = $pro_form_var['product_id'];
@@ -116,4 +116,3 @@ class Products_Controller extends Controller
     }
    
 }
-?>

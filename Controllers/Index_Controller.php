@@ -37,4 +37,3 @@ class Index_Controller extends Controller
 		$this->View->load('Product_By_Category',$pro_by_cat);
 	}
 }
-?>

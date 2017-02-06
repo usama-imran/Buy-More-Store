@@ -40,4 +40,3 @@ class Categories_Model extends Model
 		$this->conn->query($sql_query);
 	}
 }
-?>

@@ -27,5 +27,3 @@ class Index_Model extends Model
 		return $result;
 	}
 }
-
-?>

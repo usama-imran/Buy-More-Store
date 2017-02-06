@@ -57,4 +57,3 @@ class Categories_Controller extends Controller
     }
    
 }
-?>

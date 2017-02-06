@@ -14,5 +14,3 @@ class Login_Model extends Model
 		return $result;
 	}
 }
-
-?>

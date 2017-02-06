@@ -16,8 +16,8 @@ class Cart_Controller extends Controller
  }
 
  /**
-  * Will check if the session exists , if exists than add the product selected to the array for the cart
-  * @return $_SESSION['pro_array']
+  * Add the product selected to the array for the cart
+  * @return array $_SESSION['pro_array']
   */
  function basket()
  {
@@ -69,4 +69,3 @@ class Cart_Controller extends Controller
  } 
  
 }// End of class
-?>

@@ -4,22 +4,13 @@ class Controller
 {
 	public  $Model;
 	
+	/**
+	 * @todo Modle to load only when the child class is requesting the modle object
+	 */
 	public function __construct()
 	{
 		$this->View = new View();
+		$obj = new Model_Factory();
+		$this->Model = $obj->load_model();
 	}
-	/**
-	 * Will load the model w.r.t its name
-	 * @param string $name will be the name of the model before "_Model"
-	 */
-	public function load_model($name)
-	{
-		$path = 'Models/'.$name.'_Model.php';
-		if (file_exists($path))
-		{
-			$model_name = $name.'_Model';
-			$this->Model = new $model_name();
-		}
-	}
-	
 }
