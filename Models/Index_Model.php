@@ -11,7 +11,8 @@ class Index_Model extends Model
 	function index()
 	{		
 		$sql_query = "SELECT category.cat_id, category.cname, count(product.cat_id ) 
-				FROM category RIGHT OUTER JOIN product ON category.cat_id = product.cat_id GROUP BY product.cat_id ORDER BY category.cname";
+				FROM category RIGHT OUTER JOIN product ON category.cat_id = product.cat_id
+				GROUP BY product.cat_id ORDER BY category.cname";
 		$result = $this->conn->query($sql_query);
 		return $result;
 	}

@@ -10,7 +10,7 @@ class Controller_Factory
  	/**
   	 * Will execute the requested method from the requested controller
   	 * @return void
-  	 */		   
+  	 */   
 	public function __construct()
 	{
 		$this->request = new Request();
@@ -20,6 +20,7 @@ class Controller_Factory
 	}
 	/**
 	 * Will execute the requested method from the requested controller
+	 * @throws Exception if the requested controller OR method not found
 	 * @return void
 	 */
 	public function execute()

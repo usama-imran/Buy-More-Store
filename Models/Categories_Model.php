@@ -11,7 +11,9 @@ class Categories_Model extends Model
 	 */
 	public function categories()
 	{
-	$sql_query = "SELECT category.cat_id,category.cname,category.description,category.date_created , users.first_name FROM category JOIN users ON category.created_by=users.person_id;";
+	$sql_query = "SELECT category.cat_id,category.cname,category.description,
+			category.date_created,users.first_name FROM category 
+			JOIN users ON category.created_by=users.person_id;";
     $result = $this->conn->query($sql_query);
     return $result;
 	}
@@ -24,8 +26,10 @@ class Categories_Model extends Model
 	 */
 	function add_category($name,$description,$is_active,$created_by)
 	{
-		$sql_query = "INSERT INTO `category` (`cat_id`, `cname`, `description`, `created_by`, `is_active`, `date_created`)
-		VALUES (NULL, '$name', '$description', '$created_by', '$is_active', CURRENT_TIMESTAMP);";
+		$sql_query = "INSERT INTO `category` 
+		(`cat_id`, `cname`, `description`, `created_by`, `is_active`, `date_created`)
+		VALUES 
+		(NULL, '$name', '$description', '$created_by', '$is_active', CURRENT_TIMESTAMP);";
 		$this->conn->query($sql_query);
 	}
 	/**
@@ -36,7 +40,8 @@ class Categories_Model extends Model
 	 */
 	function edit_category($name,$description,$category_id)
 	{
-		$sql_query = "UPDATE `category` SET `cname` = '$name' ,`description` = '$description'  WHERE `category`.`cat_id` = '$category_id';";
+		$sql_query = "UPDATE `category` SET `cname` = '$name' ,
+		`description` = '$description'WHERE `category`.`cat_id` = '$category_id';";
 		$this->conn->query($sql_query);
 	}
 }

@@ -46,8 +46,7 @@ class Request
     }
     /**
      * Will return the arguments to be passed to a method
-     * @return string $arguments
-     * @todo change of return type required after improving the logic of getting the arguments.
+     * @return array $arguments
      */
     public function get_args()
     {
@@ -61,7 +60,7 @@ class Request
     {
         $query = strpos($uri, '?');
         $hash = strpos($uri, '#');
-        if($query!==FALSE||$hash!==FALSE)
+        if($query!==false||$hash!==false)
         {
             $idx =  $query < $hash ? $hash : $query;
             $uri = substr($uri, 0, $idx);
@@ -77,8 +76,8 @@ class Request
         $method = method_exists($this->controller, $this->action);
         if(!$controller||!$method)
         {
-            return FALSE;
+            return false;
         }
-        return TRUE;
+        return true;
     }
 }

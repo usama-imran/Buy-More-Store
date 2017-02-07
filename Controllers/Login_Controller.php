@@ -11,6 +11,7 @@ class Login_Controller extends Controller
 	}
 	/**
 	 * Will get the info of the user loggin in, authenticate it, and create a session for it.
+	 * @todo else part not working properly, Fix later
 	 * @return void
 	 */
 	function do_login()
@@ -19,21 +20,15 @@ class Login_Controller extends Controller
 		$user_password = $_REQUEST['password'] ;
 		//Model class object creation for getting the users data.		
 		$reslut = $this->Model->login($user_email,$user_password);
-		if($reslut)
-		{
-			
-			foreach ($reslut as $value)
-			{
+		if($reslut){
+			foreach ($reslut as $value){
 				$_SESSION['user_type'] = $value['type']; // get the type of the user i.e Admin/User
-				if($_SESSION['user_type'] == 'admin')
-				{
+				if($_SESSION['user_type'] == 'admin'){
 					$_SESSION['user_info'] = $value['person_id'];
 					$_SESSION['user_name'] = $value ['first_name'];
 					$_SESSION['admin'] = true;
 					header("Location:".BASE_URL."Categories_Controller/Categories");
-				}
-				elseif ($_SESSION['user_type'] == 'user')
-				{
+				} else if ($_SESSION['user_type'] == 'user') {
 					$_SESSION['user'] = true;
 					$_SESSION['user_info'] = $value['person_id'];
 					$_SESSION['user_name'] = $value ['first_name'];
@@ -41,9 +36,7 @@ class Login_Controller extends Controller
 				}
 			}
 			
-		}
-		else
-		{
+		} else {
 			header("Location:".BASE_URL."Login_Controller/Login");
 		}
 	}

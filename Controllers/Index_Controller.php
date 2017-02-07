@@ -25,12 +25,9 @@ class Index_Controller extends Controller
 	 */
 	public function product_by_category()
 	{
-		if(!empty($_POST))
-		{
+		if(!empty($_POST)){
 			$id = $_POST['catid'];
-		}
-		else
-		{
+		} else {
 			$id = 4;
 		}
 		$pro_by_cat = $this->Model->get_product_by_category($id);

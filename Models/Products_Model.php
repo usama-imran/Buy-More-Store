@@ -10,7 +10,9 @@ class Products_Model extends Model
 	 */
 	public function products()
 	{
-	$sql_query = "SELECT product.product_id,product.cat_id,product.name,product.price,product.quantity,product.description,product.date_created , users.first_name ,category.cname
+	$sql_query = "SELECT product.product_id,product.cat_id,product.name,
+			product.price,product.quantity,product.description,
+			product.date_created , users.first_name ,category.cname
 			FROM product 
             JOIN users ON product.created_by=users.person_id
             JOIN category ON product.cat_id=category.cat_id";
@@ -31,9 +33,13 @@ class Products_Model extends Model
 	*/
 	function add_product($name,$price,$image,$quantity,$description,$category,$is_active,$created_by)
 	{
-	$sql_query = "INSERT INTO `product` (`product_id`, `name`, `price`, `description`,`quantity`,`image`, `date_created`, `created_by`, `is_active`, `cat_id`) 
-	VALUES (NULL,'$name','$price','$description','$quantity','$image',CURRENT_TIMESTAMP,'$created_by','$is_active','$category');" ;
-    $this->conn->query($sql_query) or trigger_error("Query Failed! SQL: $sql_query - Error: ".mysqli_error(), E_USER_ERROR);
+	$sql_query = "INSERT INTO `product` 
+	(`product_id`, `name`, `price`, `description`,`quantity`,`image`,
+	`date_created`, `created_by`, `is_active`, `cat_id`) 
+	VALUES 
+	(NULL,'$name','$price','$description','$quantity','$image'
+	,CURRENT_TIMESTAMP,'$created_by','$is_active','$category');" ;
+    $this->conn->query($sql_query);
 	}
 	/**
 	 * Will get an existing category by its id
@@ -58,7 +64,9 @@ class Products_Model extends Model
 	 */
 	function edit_product($pro_id,$pro_name,$pro_price,$pro_quantity,$pro_desc,$pro_category,$pro_is_active)
 	{
-		$sql_query = "UPDATE `product` SET `name` = '$pro_name', `price` = '$pro_price', `description` = '$pro_desc', `quantity` = '$pro_quantity', `is_active` = '$pro_is_active', `cat_id` = '$pro_category' WHERE `product`.`product_id` = $pro_id;";
+		$sql_query = "UPDATE `product` SET `name` = '$pro_name', `price` = '$pro_price',
+		`description` = '$pro_desc', `quantity` = '$pro_quantity', `is_active` = '$pro_is_active',
+		`cat_id` = '$pro_category' WHERE `product`.`product_id` = $pro_id;";
 		$this->conn->query($sql_query);
 	}
 }

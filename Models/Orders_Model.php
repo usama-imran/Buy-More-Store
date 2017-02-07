@@ -8,7 +8,11 @@ class Orders_Model extends Model
 	public function Orders()
 	{		
 		$order = "SELECT * FROM cart";
-		$cart = "SELECT C.order_id, P.name, CP.quantity, U.first_name , C.credit_card_no FROM cart C JOIN cart_products CP ON C.order_id = CP.order_id JOIN users U ON CP.person_id = U.person_id JOIN product P ON CP.product_id = P.product_id";
+		$cart = "SELECT C.order_id, P.name, CP.quantity, U.first_name , 
+				C.credit_card_no FROM cart C 
+				JOIN cart_products CP ON C.order_id = CP.order_id 
+				JOIN users U ON CP.person_id = U.person_id 
+				JOIN product P ON CP.product_id = P.product_id";
 		$order_result = $this->conn->query($order);
 		$cart_result = $this->conn->query($cart);
 		return array ($order_result,$cart_result);		
