@@ -2,7 +2,7 @@
 /**
  * Cart Controller will be responsible for managing the cart, add/remove/checkout products from the cart.
  */
-class Cart_Controller extends Controller
+class Cart_Controller extends CRUD_Controller
 {
 
  /**

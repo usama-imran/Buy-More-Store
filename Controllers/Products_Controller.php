@@ -1,8 +1,10 @@
 <?php
 /**
-* Class holding all the CRUD operations of Categories on Controller level 
-*/
-class Products_Controller extends Controller
+ * Will handle populating the categories along with the CRUD operation performed on it. 
+ * @author Usama
+ *
+ */
+class Products_Controller extends CRUD_Controller
 {
 	private $pro_model_obj;
 	private $cat_model_obj;

@@ -4,8 +4,12 @@ if(!isset($_SESSION['create_array']))
 	$_SESSION['create_array'] = 1;
 	$_SESSION['pro_array'] = array();
 }
-// require_once 'Models/Index_Model.php';
-class Index_Controller extends Controller
+/**
+ * Will be responsible for populating the index page with products and categories
+ * @author Usama
+ *
+ */
+class Index_Controller extends CRUD_Controller
 {
 	/**
 	 * Will load the index view along with the categories menu

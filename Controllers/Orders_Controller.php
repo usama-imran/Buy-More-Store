@@ -1,5 +1,10 @@
 <?php
-class Orders_Controller extends Controller
+/**
+ * Will be responsible for populating the orders and change the delivery status
+ * @author Usama
+ *
+ */
+class Orders_Controller extends CRUD_Controller
 {
 	/**
 	 * Function get the list of orders along with their details.
@@ -11,6 +16,7 @@ class Orders_Controller extends Controller
 			header("Location:".BASE_URL."Login_Controller/Login");
 		
 		$result = $this->Model->Orders();
+		$this->View->load('order_index',$result);
 		
 	}
 	/**

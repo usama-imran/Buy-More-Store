@@ -1,8 +1,8 @@
 <?php
 /**
- *@todo Error Controller do not require a modle, It is extending the 
- *		Controller class which is loading the modle, 
- *		Create seperate base controller for error OR use some other technique
+ * Will show the error page whenever there is an error
+ * @author Usama
+ *
  */
 class Error_Controller extends Controller 
 {

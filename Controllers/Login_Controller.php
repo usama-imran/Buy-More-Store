@@ -1,12 +1,17 @@
 <?php
-class Login_Controller extends Controller
+/**
+ * Will be responsible for validating the user and create the session w.r.t person logging in
+ * @author Usama
+ *
+ */
+class Login_Controller extends CRUD_Controller
 {
 	/**
 	 * Will load the login view
 	 * @return void
 	 */
 	public function login()
-	{
+	{	
 		$this->View->Load("Login");
 	}
 	/**

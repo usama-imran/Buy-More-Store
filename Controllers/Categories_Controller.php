@@ -2,7 +2,7 @@
 /**
 * Class holding all the CRUD operations of Categories on Controller level 
 */
-class Categories_Controller extends Controller
+class Categories_Controller extends CRUD_Controller
 {
     /**
     * Will get a list of all the categories from the database
