@@ -11,8 +11,7 @@ class Model_Factory
 		$this->model_name = $controller_name[0];
 	}
 	/**
-	 * Will load the model w.r.t its name
-	 * @param string $name will be the name of the model before "_Model"
+	 * Will load the model w.r.t to the Controller Name befor "_Controller"
 	 */
 	public function load_model()
 	{

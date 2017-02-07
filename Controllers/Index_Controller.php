@@ -13,11 +13,9 @@ class Index_Controller extends Controller
 	 */
 	public function index() 
 	{
-		$this->View->load('Page_Header');
 		$model = new Index_Model();
 		$result = $this->Model->index();
  		$this->View->load('Index',$result);
- 		$this->View->load('Footer');
 	}
 	/**
 	 * Will load the products by category according to the category clicked
@@ -30,7 +28,7 @@ class Index_Controller extends Controller
 		} else {
 			$id = 4;
 		}
-		$pro_by_cat = $this->Model->get_product_by_category($id);
-		$this->View->load('Product_By_Category',$pro_by_cat);
+		$result = $this->Model->get_product_by_category($id);
+		require_once BASE_PATH.'/Views/Product_By_Category.php';
 	}
 }

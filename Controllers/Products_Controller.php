@@ -22,7 +22,6 @@ class Products_Controller extends Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:".BASE_URL."Login_Controller/Login");
     	
-    	$this->View->Load("navbar");
         $result = $this->pro_model_obj->products(); // getting the result from model function
         $this->View->Load("products_index",$result);
     }
@@ -36,7 +35,6 @@ class Products_Controller extends Controller
     	
     	$products = $this->pro_model_obj->products();
     	$categories = $this->cat_model_obj->categories();
-    	$this->View->Load("navbar");
     	require_once 'Views/Add_Product.php';
     }
     /**

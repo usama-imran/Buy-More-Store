@@ -10,9 +10,7 @@ class Cart_Controller extends Controller
  */
  function cart()
  {
- 	$this->View->Load("Page_Header");
  	$this->View->Load("Cart");
- 	$this->View->Load("Footer");
  }
 
  /**

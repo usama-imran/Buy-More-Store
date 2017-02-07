@@ -22,6 +22,7 @@ class Controller_Factory
 	 * Will execute the requested method from the requested controller
 	 * @throws Exception if the requested controller OR method not found
 	 * @return void
+	 * @todo Query -> Workout if this method should be here or not? 
 	 */
 	public function execute()
 	{

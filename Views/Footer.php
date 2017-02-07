@@ -1,4 +1,4 @@
-
+<footer>
 <div class="Container">
 
 <div class="footer_social">
@@ -28,5 +28,5 @@
 		</ul>
 	</div>
 </div>
-
 </div>
+</footer>

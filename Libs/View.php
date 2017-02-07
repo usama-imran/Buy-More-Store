@@ -6,8 +6,16 @@ class View
 	 * @param string $name Will be the name of the view
 	 * @param array $result will be the data sent to the view
 	 */
-	public function load($name,$result = Null)
+	public function load($name,$result = null)
 	{
+		if(isset($_SESSION['user']) || !isset($_SESSION['user']) && !isset($_SESSION['admin'])){
+			require_once BASE_PATH.'/Views/Page_Header.php';
+		} elseif (isset($_SESSION['admin'])){
+			require_once BASE_PATH.'/Views/Navbar.php';
+		}
 		require_once BASE_PATH.'/Views/'.$name.'.php';
+		if(isset($_SESSION['user']) || !isset($_SESSION['user']) && !isset($_SESSION['admin'])){
+			require_once BASE_PATH.'/Views/Footer.php';
+		}
 	}
 }
