@@ -41,7 +41,9 @@ class Cart_Controller extends CRUD_Controller
  }
 
  /**
-  * Will be responsible for removing item from the cart(array)
+  * Will be responsible for removing item from the cart(array).
+  * 
+  * @todo After deleting one item other items are not deleteable until the page is refreshed, JS issue.
   */
  function remove_from_array()
  {		

@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class responsible for making the objects of the controller & to execute the request made by the user
+ * @author Usama
+ * 
+ */
 class Controller_Factory
 {
 	public $controller = null,
@@ -22,12 +26,12 @@ class Controller_Factory
 	 * Will execute the requested method from the requested controller
 	 * @throws Exception if the requested controller OR method not found
 	 * @return void
-	 * @todo Query -> Workout if this method should be here or not? 
+	 * @todo this method should be here or not? 
 	 */
 	public function execute()
 	{
 		try {
-			if($this->request->page_exist()){
+			if($this->request->page_exist()) {
 				$controller = new $this->controller();
 				if(empty($this->args)){
 					$controller->{$this->method}();

@@ -1,6 +1,7 @@
 <?php
 /**
- * Will handle populating the categories along with the CRUD operation performed on it. 
+ * Will handle populating the products along with the CRUD operation performed on it. 
+ * @todo Changes required, i.e Code Reduction, Remove Includes, 
  * @author Usama
  *
  */
@@ -40,7 +41,8 @@ class Products_Controller extends CRUD_Controller
     	require_once 'Views/Add_Product.php';
     }
     /**
-     * Will add the row category
+     * Will add the row category.
+     * @todo Reduce the code.
      * @return void
      */
     public function add_product()
