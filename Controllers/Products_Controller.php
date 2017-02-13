@@ -42,35 +42,25 @@ class Products_Controller extends CRUD_Controller
     }
     /**
      * Will add the row category.
-     * @todo Reduce the code.
+     * @todo Manage associated products.
      * @return void
      */
-    public function add_product()
-    {//getting the details of the immage and moving it to the uploads folder
+    public function add_product($args)
+    {
+    	//getting the details of the immage and moving it to the uploads folder
         $product_image = "No Image";
         $target_path = "Sources/Images/";
         $target_path = $target_path.basename( $_FILES['pro_image']['name']);
         move_uploaded_file($_FILES['pro_image']['tmp_name'], $target_path); // image moved to uploads folder
         $product_image= $_FILES['pro_image']['name']; //will store the name of the image in a variable
         //getting the input fields posted from the form
-        $product_name = $_REQUEST['name'];
-        $product_price = $_REQUEST['price'];
-        $product_description = $_REQUEST['description'];
-        $product_category = $_REQUEST['category'];
-        $product_is_active = $_REQUEST['is_active'];
-        $product_created_by = $_REQUEST['created_by'];
-        $product_quantity = $_REQUEST['quantity'];
-        // Model object creation to call the model function of inserting the data
-        $response =$this->pro_model_obj->add_product($product_name,$product_price,$product_image,$product_quantity,$product_description,$product_category,$product_is_active,$product_created_by);
-        //chek if there are any associated products. by default it will be 0
-        $associated_product_enable = $_REQUEST['associated_product_enable'];
-        // if there are associated products than this function
-        if($associated_product_enable == 1)
-        {
-            $associated_product_id = $_REQUEST['associated_product'];
-            $associated_product_obj = new Associated_Product();
-            $associated_product_obj->create_associated_product($associated_product_id);
-        }
+        print_r($args);
+        $this->pro_model_obj->add_product($args['name'],$args['price'],$product_image,$args['quantity'],
+        		$args['description'],$args['category'],$args['is_active'],$args['created_by']);
+//         if($args['associated_product_enable'] == 1) {
+//             $associated_product_obj = new Associated_Product();
+//             $associated_product_obj->create_associated_product($args['associated_product']);
+//         }
         header("Location:".BASE_URL."Products_Controller/Products");
     }
     
@@ -78,14 +68,14 @@ class Products_Controller extends CRUD_Controller
      * Will populate the edit view with product information
      * @param array $param
      */
-    public function edit($param)
+    public function edit($id)
     {
     	if(!isset($_SESSION['admin']))
     		header("Location:".BASE_URL."Login_Controller/Login");
     	
     	$products = $this->pro_model_obj->products();
     	$categories = $this->cat_model_obj->categories();
-    	$product_detail = $this->pro_model_obj->edit($param[0]);
+    	$product_detail = $this->pro_model_obj->edit($id[0]);
     	foreach ($product_detail as $pro_form_var)
     	{
     		$pro_id = $pro_form_var['product_id'];
@@ -102,18 +92,10 @@ class Products_Controller extends CRUD_Controller
      * Will edit the row
      * @return void
      */
-    function edit_product()
+    public function edit_product($args)
     {
-    	// requesting the inputs from the posted form
-    	$pro_id = $_POST['product_id'];
-    	$pro_name = $_POST['name'];
-    	$pro_price = $_POST['price'];
-    	$pro_quantity = $_POST['quantity'];
-    	$pro_desc = $_POST['description'];
-    	$pro_category = $_POST['category'];
-    	$pro_is_active = $_POST['is_active'];
-    	$this->pro_model_obj->edit_product($pro_id,$pro_name,$pro_price,$pro_quantity,$pro_desc,$pro_category,$pro_is_active);
-    	
+    	$this->pro_model_obj->edit_product($args ['product_id'],$args ['name'],$args ['price'],$args ['quantity'],
+		$args ['description'],$args ['category'],$args ['is_active']);
     	header("Location:".BASE_URL."Products_Controller/Products");
     }
    

@@ -19,28 +19,23 @@ class Login_Controller extends CRUD_Controller
 	 * @todo else part not working properly, Fix later
 	 * @return void
 	 */
-	function do_login()
+	function do_login($args)
 	{
-		$user_email = $_REQUEST['email'];
-		$user_password = $_REQUEST['password'] ;
 		//Model class object creation for getting the users data.		
-		$reslut = $this->Model->login($user_email,$user_password);
-		if($reslut){
-			foreach ($reslut as $value){
+		$result = $this->Model->login($args['email'],$args['password']);
+		if($result->num_rows != 0){
+			foreach ($result as $value){
 				$_SESSION['user_type'] = $value['type']; // get the type of the user i.e Admin/User
+				$_SESSION['user_info'] = $value['person_id'];
+				$_SESSION['user_name'] = $value ['first_name'];
 				if($_SESSION['user_type'] == 'admin'){
-					$_SESSION['user_info'] = $value['person_id'];
-					$_SESSION['user_name'] = $value ['first_name'];
 					$_SESSION['admin'] = true;
 					header("Location:".BASE_URL."Categories_Controller/Categories");
 				} else if ($_SESSION['user_type'] == 'user') {
 					$_SESSION['user'] = true;
-					$_SESSION['user_info'] = $value['person_id'];
-					$_SESSION['user_name'] = $value ['first_name'];
 					header("Location:".BASE_URL."Index_Controller/Index");
 				}
 			}
-			
 		} else {
 			header("Location:".BASE_URL."Login_Controller/Login");
 		}

@@ -23,10 +23,8 @@ class Orders_Controller extends CRUD_Controller
 	 * Function to post the data to the model to update delivery status of the order
 	 * @return void
 	 */
-	public function delivery_status()
+	public function delivery_status($args)
 	{
-		$id = $_POST['order_id'];
-		$active = $_POST['active'];
-		$this->Model->Delivery_Status($id,$active);
+		$this->Model->Delivery_Status($args['order_id'],$args['active']);
 	}
 }

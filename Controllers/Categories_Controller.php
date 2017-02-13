@@ -29,28 +29,18 @@ class Categories_Controller extends CRUD_Controller
      * Will add the row category
      * @return void
      */
-    public function add_category()
+    public function add_category($args)
     {
-    	$cat_name = $_REQUEST['name'];
-    	$cat_description = $_REQUEST['description'];
-    	$cat_is_active = $_REQUEST['is_active'];
-    	$cat_created_by = $_REQUEST['created_by'];
-    	// Creating the object of the model class to call its method to post requested data
-    	$this->Model->add_category($cat_name,$cat_description,$cat_is_active,$cat_created_by);
+    	$this->Model->add_category($args['name'],$args['description'],$args['is_active'],$args['created_by']);
     	header("Location:".BASE_URL."Categories_Controller/Categories");
     }
     /**
      * Will edit the row
      * @return void
      */
-    function edit_category()
+    function edit_category($args)
     {
-    	// requesting the inputs from the posted form
-    	$cat_name = $_REQUEST['cat_name'];
-    	$cat_description = $_REQUEST['cat_description'];
-    	$cat_id = $_REQUEST['cat_id'];
-    	// Creating the object of the model class to call its method to post requested data
-    	$this->Model->edit_category($cat_name,$cat_description,$cat_id);
+    	$this->Model->edit_category($args['cat_name'],$args['cat_description'],$args['cat_id']);
     }
    
 }

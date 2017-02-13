@@ -25,10 +25,10 @@ class Index_Controller extends CRUD_Controller
 	 * Will load the products by category according to the category clicked
 	 * @return void
 	 */
-	public function product_by_category()
+	public function product_by_category($id)
 	{
 		if(!empty($_POST)){
-			$id = $_POST['catid'];
+			$id = $id['catid'];
 		} else {
 			$id = 4;
 		}

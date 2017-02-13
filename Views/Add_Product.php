@@ -94,7 +94,7 @@
 				</tr>
 				<tr><td>&nbsp;</td></tr>
 				<tr>
-					<td></td><td><input type="hidden" name="created_by" value="<?php echo htmlspecialchars($logged_in_userID); ?>"></td>
+					<td></td><td><input type="hidden" name="created_by" value="<?php echo $_SESSION['user_info']; ?>"></td>
 				</tr>
 				<tr><td>&nbsp;</td></tr>
 				<tr>

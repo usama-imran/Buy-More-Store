@@ -21,7 +21,7 @@
 	
 	<fieldset class="well">
 		<legend class="well" style="width: 160px">Edit Product</legend>
-		<form action="<?php echo BASE_URL; ?>Prooducts_Controller/edit_product" method="post" id="pro_form" enctype="multipart/form-data"> 
+		<form action="<?php echo BASE_URL; ?>Products_Controller/edit_product" method="post" id="pro_form" enctype="multipart/form-data"> 
 		<input type="hidden" name="product_id" value="<?php echo $pro_id; ?>">
 			<table>
 				<tr>

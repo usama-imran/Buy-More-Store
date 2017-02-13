@@ -13,6 +13,7 @@ $(function(){
 		        },
 		        function(data){
 		        	$("#cart").load(" #cart");
+		        	console.log(data);
 		        });
 	}
 	

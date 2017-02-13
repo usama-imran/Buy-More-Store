@@ -25,15 +25,20 @@ class Request
     {
         $uri = isset($_GET['url']) ? $_GET['url'] : null;
         $uri = trim($uri, '/');
-        $this->remove_query_or_hash($uri);
+        $this->remove_query_or_hash($uri);        
         $exploded_uri = explode('/', $uri);
+        
         if(isset($exploded_uri[0])){
         	$this->controller = $exploded_uri[0];
         }
         if(isset($exploded_uri[1])){
         	$this->action = $exploded_uri[1];
         }
-        $this->args = array_slice($exploded_uri, 2);
+        if($_POST){
+        	$this->args = $_POST;
+        } else {
+        	$this->args = array_slice($exploded_uri, 2);
+        }
     }
 	/**
 	 * Will return the name of the controller
