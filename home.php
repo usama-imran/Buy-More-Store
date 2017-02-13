@@ -9,7 +9,6 @@ require_once 'autoload.php';
 try {
 	if(class_exists('Controller_Factory')) { 
 		$controller_factory = new Controller_Factory();
-		$controller_factory->execute();
 	} else { 
 		throw new Exception("Error");
 	}

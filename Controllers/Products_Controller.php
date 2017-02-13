@@ -1,19 +1,17 @@
 <?php
 /**
  * Will handle populating the products along with the CRUD operation performed on it. 
- * @todo Changes required, i.e Code Reduction, Remove Includes, 
+ * @todo Changes required, Cat Model Not Loaded. 
  * @author Usama
  *
  */
 class Products_Controller extends CRUD_Controller
 {
-	private $pro_model_obj;
 	private $cat_model_obj;
 	
 	public function __construct()
 	{
 		parent::__construct();
-		$this->pro_model_obj= new Products_Model();
 		$this->cat_model_obj= new Categories_Model();
 	}
     /**
@@ -25,7 +23,7 @@ class Products_Controller extends CRUD_Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:".BASE_URL."Login_Controller/Login");
     	
-        $result = $this->pro_model_obj->products(); // getting the result from model function
+        $result = $this->Model->products(); // getting the result from model function
         $this->View->Load("products_index",$result);
     }
     /**
@@ -36,8 +34,8 @@ class Products_Controller extends CRUD_Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:../Login_Controller/Login");
     	
-    	$products = $this->pro_model_obj->products();
-    	$categories = $this->cat_model_obj->categories();
+    	$products = $this->Model->products();
+//     	$categories = $this->cat_model_obj->categories();
     	require_once 'Views/Add_Product.php';
     }
     /**
@@ -55,7 +53,7 @@ class Products_Controller extends CRUD_Controller
         $product_image= $_FILES['pro_image']['name']; //will store the name of the image in a variable
         //getting the input fields posted from the form
         print_r($args);
-        $this->pro_model_obj->add_product($args['name'],$args['price'],$product_image,$args['quantity'],
+        $this->Model->add_product($args['name'],$args['price'],$product_image,$args['quantity'],
         		$args['description'],$args['category'],$args['is_active'],$args['created_by']);
 //         if($args['associated_product_enable'] == 1) {
 //             $associated_product_obj = new Associated_Product();
@@ -73,9 +71,9 @@ class Products_Controller extends CRUD_Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:".BASE_URL."Login_Controller/Login");
     	
-    	$products = $this->pro_model_obj->products();
-    	$categories = $this->cat_model_obj->categories();
-    	$product_detail = $this->pro_model_obj->edit($id[0]);
+    	$products = $this->Model->products();
+    	//$categories = $this->cat_model_obj->categories();
+    	$product_detail = $this->Model->edit($id[0]);
     	foreach ($product_detail as $pro_form_var)
     	{
     		$pro_id = $pro_form_var['product_id'];
