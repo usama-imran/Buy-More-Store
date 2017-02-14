@@ -16,8 +16,17 @@ class Controller_Factory
 	public function __construct()
 	{
 		$this->request = new Request();
-		$this->controller = $this->request->get_controller();
-		$this->controller = new $this->controller();
+		try {
+			echo $this->request->page_exist();
+			if($this->request->page_exist()) {
+				$this->controller = $this->request->get_controller();
+				$this->controller = new $this->controller();
+			} else {
+			 throw new Exception("Error");		
+			}
+		} catch (Exception $e) {
+			new Error_Controller();
+		}
 	}
 	
 }
