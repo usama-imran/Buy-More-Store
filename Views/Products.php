@@ -12,7 +12,7 @@
 	<div class="container">
 	
 	<fieldset class="">
-	<legend class="well">Products - <a href="<?php echo BASE_URL; ?>Products_Controller/Add"><button class="btn btn-primary" ><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add New</button></a></legend>
+	<legend class="well">Products - <a href="<?php echo BASE_URL; ?>Products_Controller/Add_Products"><button class="btn btn-primary" ><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add New</button></a></legend>
 	</fieldset>
 	<!-- Requesting categories from the controller and populating the view-->
 	<table width = 100% class="table table-striped table-hover">
@@ -46,7 +46,7 @@
 			echo $var['first_name'];
 			echo "&nbsp;</td><td>";
 		?>
-		<a href="Edit/<?php echo $var['product_id']?>" class="hvr-pop"><span class="glyphicon glyphicon-edit"></span> </a>
+		<a href="Edit_Products/<?php echo $var['product_id']?>" class="hvr-pop"><span class="glyphicon glyphicon-edit"></span> </a>
 		<?php 
 		}
 		?>

@@ -5,7 +5,7 @@
  * @author Usama
  *
  */
-class Products_Controller extends CRUD_Controller
+class Products_Controller extends Admin_Controller
 {
 	private $cat_model_obj;
 	
@@ -24,30 +24,30 @@ class Products_Controller extends CRUD_Controller
     		header("Location:".BASE_URL."Login_Controller/Login");
     	
         $result = $this->Model->products(); // getting the result from model function
-        $this->View->Load("products_index",$result);
+        $this->result = $result;
     }
     /**
     * Will get the view to add category
     */
-    public function add()
+    public function add_products()
     {
     	if(!isset($_SESSION['admin']))
     		header("Location:../Login_Controller/Login");
     	
     	$products = $this->Model->products();
 //     	$categories = $this->cat_model_obj->categories();
-    	require_once 'Views/Add_Product.php';
     }
     /**
      * Will add the row category.
      * @todo Manage associated products.
+     * @param array $args.
      * @return void
      */
     public function add_product($args)
     {
     	//getting the details of the immage and moving it to the uploads folder
         $product_image = "No Image";
-        $target_path = "Sources/Images/";
+        $target_path = "Public/Images/";
         $target_path = $target_path.basename( $_FILES['pro_image']['name']);
         move_uploaded_file($_FILES['pro_image']['tmp_name'], $target_path); // image moved to uploads folder
         $product_image= $_FILES['pro_image']['name']; //will store the name of the image in a variable
@@ -64,9 +64,9 @@ class Products_Controller extends CRUD_Controller
     
     /**
      * Will populate the edit view with product information
-     * @param array $param
+     * @param array $id
      */
-    public function edit($id)
+    public function edit_products($id)
     {
     	if(!isset($_SESSION['admin']))
     		header("Location:".BASE_URL."Login_Controller/Login");
@@ -76,18 +76,13 @@ class Products_Controller extends CRUD_Controller
     	$product_detail = $this->Model->edit($id[0]);
     	foreach ($product_detail as $pro_form_var)
     	{
-    		$pro_id = $pro_form_var['product_id'];
-    		$pro_name = $pro_form_var['name'];
-    		$pro_price = $pro_form_var['price'];
-    		$pro_description = $pro_form_var['description'];
-    		$pro_quantity = $pro_form_var['quantity'];
-    		$pro_cat_id = $pro_form_var['cat_id'];
-    		$pro_is_active = $pro_form_var['is_active'];
+    		$items = array($pro_form_var);
     	}
-    	require_once 'Views/Edit_Product.php';
+    	$this->result = $items;
     }
     /**
      * Will edit the row
+     * @param array $args
      * @return void
      */
     public function edit_product($args)

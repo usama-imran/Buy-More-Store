@@ -31,7 +31,7 @@ class CRUD_Controller extends Controller
 	 * @return void
 	 * @todo this method should be here or not?
 	 */
-	public function execute()
+	private function execute()
 	{
 		try {
 			if($this->request->page_exist()) {

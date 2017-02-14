@@ -2,7 +2,7 @@
 /**
 * Class holding all the CRUD operations of Categories on Controller level 
 */
-class Categories_Controller extends CRUD_Controller
+class Categories_Controller extends Admin_Controller
 {
     /**
     * Will get a list of all the categories from the database
@@ -13,17 +13,15 @@ class Categories_Controller extends CRUD_Controller
     	if(!isset($_SESSION['admin']))
     		header("Location:".BASE_URL."Login_Controller/Login");
         $result = $this->Model->categories(); // getting the result from model function
-        $this->View->Load("Categories_Index",$result);
+        $this->result = $result;
     }
     /**
     * Will get the view to add category
     */
-    public function add()
+    public function add_categories()
     {
     	if(!isset($_SESSION['admin']))
     		header("Location:../Login_Controller/Login");
-    	
-    	$this->View->Load("Add_Category");
     }
     /**
      * Will add the row category

@@ -9,7 +9,7 @@ if(!isset($_SESSION['create_array']))
  * @author Usama
  *
  */
-class Index_Controller extends CRUD_Controller
+class Index_Controller extends User_Controller
 {
 	/**
 	 * Will load the index view along with the categories menu
@@ -19,10 +19,11 @@ class Index_Controller extends CRUD_Controller
 	{
 		$model = new Index_Model();
 		$result = $this->Model->index();
- 		$this->View->load('Index',$result);
+		$this->result = $result;
 	}
 	/**
 	 * Will load the products by category according to the category clicked
+	 * @todo get rid of the require header & footer in this function
 	 * @return void
 	 */
 	public function product_by_category($id)
@@ -33,6 +34,6 @@ class Index_Controller extends CRUD_Controller
 			$id = 4;
 		}
 		$result = $this->Model->get_product_by_category($id);
-		require_once BASE_PATH.'/Views/Product_By_Category.php';
+		$this->result = $result;
 	}
 }

@@ -18,7 +18,6 @@ class Controller_Factory
 		$this->request = new Request();
 		$this->controller = $this->request->get_controller();
 		$this->controller = new $this->controller();
-		return $this->controller;
 	}
 	
 }

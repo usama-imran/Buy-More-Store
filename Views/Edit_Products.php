@@ -1,6 +1,3 @@
-<?php 
-
-?>
 <html>
 	<head>
 		<title>Edit Product</title>
@@ -22,26 +19,26 @@
 	<fieldset class="well">
 		<legend class="well" style="width: 160px">Edit Product</legend>
 		<form action="<?php echo BASE_URL; ?>Products_Controller/edit_product" method="post" id="pro_form" enctype="multipart/form-data"> 
-		<input type="hidden" name="product_id" value="<?php echo $pro_id; ?>">
+		<input type="hidden" name="product_id" value="<?php echo $result[0]['product_id']; ?>">
 			<table>
 				<tr>
-					<td>Name:</td><td><input type="text" name="name" id="name" class="input_fields" value="<?php echo $pro_name;?>"></td>
+					<td>Name:</td><td><input type="text" name="name" id="name" class="input_fields" value="<?php echo $result[0]['name'];?>"></td>
 					<td><i><p id="name_detail" class="error_text"></p></i></td>
 				</tr>
 				<tr><td>&nbsp;</td></tr>
 				<tr>
-					<td>Price:</td><td><input type="number" name="price" id="price" class="input_fields" value="<?php echo $pro_price;?>"></td>
+					<td>Price:</td><td><input type="number" name="price" id="price" class="input_fields" value="<?php echo $result[0]['price'];?>"></td>
 					<td><i><p id="price_detail" class="error_text"></p></i></td>
 				</tr>
 				<tr><td>&nbsp;</td></tr>
 				<tr>
-					<td>Quantity:</td><td><input type="number" name="quantity" id="quantity" class="input_fields" value="<?php echo $pro_quantity;?>"></td>
+					<td>Quantity:</td><td><input type="number" name="quantity" id="quantity" class="input_fields" value="<?php echo $result[0]['quantity'];?>"></td>
 					<td><i><p id="quantity_detail" class="error_text"></p></i></td>
 				</tr>
 				
 				<tr><td>&nbsp;</td></tr>
 				<tr>
-					<td>Description:</td><td><textarea rows="4" cols="23" class="input_fields" name="description" style="resize:none" id="description"><?php echo $pro_description;?></textarea></td>
+					<td>Description:</td><td><textarea rows="4" cols="23" class="input_fields" name="description" style="resize:none" id="description"><?php echo $result[0]['description'];?></textarea></td>
 					<td><i><p id="description_detail" class="error_text"></p></i></td>
 				</tr>
 				<tr><td>&nbsp;</td></tr>
@@ -87,7 +84,7 @@
 				<tr><td>&nbsp;</td></tr>
 				<tr>
 					<td>
-					Active:</td><td><input type="checkbox"  name="is_active" value="1" <?php if($pro_is_active == 1){echo "checked";}?>>
+					Active:</td><td><input type="checkbox"  name="is_active" value="1" <?php if($result[0]['is_active'] == 1){echo "checked";}?>>
 					</td><td><input type="hidden" name="is_active" value="0">
 					</td>
 				</tr>

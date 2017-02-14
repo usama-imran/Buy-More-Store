@@ -4,7 +4,7 @@
  * @author Usama
  *
  */
-class Orders_Controller extends CRUD_Controller
+class Orders_Controller extends Admin_Controller
 {
 	/**
 	 * Function get the list of orders along with their details.
@@ -16,8 +16,7 @@ class Orders_Controller extends CRUD_Controller
 			header("Location:".BASE_URL."Login_Controller/Login");
 		
 		$result = $this->Model->Orders();
-		$this->View->load('order_index',$result);
-		
+		$this->result = $result;
 	}
 	/**
 	 * Function to post the data to the model to update delivery status of the order
