@@ -1,7 +1,6 @@
 <?php
 /**
  * Will show the error page whenever there is an error
- * @todo autoload views in this controller (later)
  * @author Usama
  *
  */

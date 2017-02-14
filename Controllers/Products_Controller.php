@@ -20,9 +20,6 @@ class Products_Controller extends Admin_Controller
     */
     public function products()
     {
-    	if(!isset($_SESSION['admin']))
-    		header("Location:".BASE_URL."Login_Controller/Login");
-    	
         $result = $this->Model->products(); // getting the result from model function
         $this->result = $result;
     }
@@ -31,9 +28,6 @@ class Products_Controller extends Admin_Controller
     */
     public function add_products()
     {
-    	if(!isset($_SESSION['admin']))
-    		header("Location:../Login_Controller/Login");
-    	
     	$products = $this->Model->products();
 //     	$categories = $this->cat_model_obj->categories();
     }
@@ -68,9 +62,6 @@ class Products_Controller extends Admin_Controller
      */
     public function edit_products($id)
     {
-    	if(!isset($_SESSION['admin']))
-    		header("Location:".BASE_URL."Login_Controller/Login");
-    	
     	$products = $this->Model->products();
     	//$categories = $this->cat_model_obj->categories();
     	$product_detail = $this->Model->edit($id[0]);

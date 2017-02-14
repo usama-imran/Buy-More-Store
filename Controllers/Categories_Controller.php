@@ -10,8 +10,6 @@ class Categories_Controller extends Admin_Controller
     */
     public function categories()
     {
-    	if(!isset($_SESSION['admin']))
-    		header("Location:".BASE_URL."Login_Controller/Login");
         $result = $this->Model->categories(); // getting the result from model function
         $this->result = $result;
     }
@@ -20,8 +18,7 @@ class Categories_Controller extends Admin_Controller
     */
     public function add_categories()
     {
-    	if(!isset($_SESSION['admin']))
-    		header("Location:../Login_Controller/Login");
+    	
     }
     /**
      * Will add the row category

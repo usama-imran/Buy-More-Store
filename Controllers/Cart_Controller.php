@@ -2,7 +2,7 @@
 /**
  * Cart Controller will be responsible for managing the cart, add/remove/checkout products from the cart.
  */
-class Cart_Controller extends CRUD_Controller
+class Cart_Controller extends User_Controller
 {
 
  /**
@@ -10,7 +10,7 @@ class Cart_Controller extends CRUD_Controller
  */
  function cart()
  {
- 	$this->View->Load("Cart");
+ 	
  }
 
  /**

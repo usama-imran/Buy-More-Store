@@ -12,9 +12,6 @@ class Orders_Controller extends Admin_Controller
 	 */
 	public function orders() 
 	{
-		if(!isset($_SESSION['admin']))
-			header("Location:".BASE_URL."Login_Controller/Login");
-		
 		$result = $this->Model->Orders();
 		$this->result = $result;
 	}

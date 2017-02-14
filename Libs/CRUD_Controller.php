@@ -10,16 +10,10 @@
 class CRUD_Controller extends Controller
 {
 	public  $Model;
-	private $request,
-			$method,
-			$args;
 	
 	public function __construct()
 	{
 		parent::__construct();
-		$this->request = new Request();
-		$this->method = $this->request->get_action();
-		$this->args = $this->request->get_args();
 		$obj = new Model_Factory();
 		$this->Model = $obj->load_model();
 		$this->execute();

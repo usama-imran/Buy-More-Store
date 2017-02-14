@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Provides with the template to be used on User side
+ * @author Usama
+ *
+ */
 class User_View extends View
 {
 	public function __construct($result) 

@@ -2,6 +2,7 @@
 /**
  * Will be responsible for validating the user and create the session w.r.t person logging in
  * @author Usama
+ * @todo Views yet to be autoloaded
  *
  */
 class Login_Controller extends CRUD_Controller
@@ -12,7 +13,7 @@ class Login_Controller extends CRUD_Controller
 	 */
 	public function login()
 	{	
-		$this->View->Load("Login");
+		require_once BASE_PATH.'/Views/Login.php';
 	}
 	/**
 	 * Will get the info of the user loggin in, authenticate it, and create a session for it.
